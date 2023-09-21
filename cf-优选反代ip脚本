@@ -1,0 +1,2 @@
+# 参考地址：https://github.com/yonggekkk/Cloudflare-workers-pages-vless/tree/main
+curl -sSL https://gitlab.com/rwkgyg/CFwarp/raw/main/point/cfip.sh -o cfip.sh && chmod +x cfip.sh && bash cfip.sh
