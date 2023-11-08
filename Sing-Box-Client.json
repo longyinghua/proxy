@@ -424,11 +424,11 @@
   ],
   "route": {
     "geosite": {
-      "download_url": "https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
+      "download_url": "https://vercel.lyhk.xyz/proxy/github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
       "download_detour": "✈️ Proxy"
       },
     "geoip": {
-      "download_url": "https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
+      "download_url": "https://vercel.lyhk.xyz/proxy/github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
       "download_detour": "✈️ Proxy"
       },
     "rules": [
