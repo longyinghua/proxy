@@ -148,78 +148,78 @@
       "type": "selector",
       "tag": "✈️ Proxy",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2-vless-reality-vision",
+        "rn-dc2-hysteria2",
+        "rn-dc2-tuic",
+        "rn-dc2-ss",
+        "rn-dc2-trojan",
+        "rn-dc2-vmess-ws",
+        "rn-dc2-vless-ws"
       ]
     },
     {
       "type": "selector",
       "tag": "📱 Telegram",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2-vless-reality-vision",
+        "rn-dc2-hysteria2",
+        "rn-dc2-tuic",
+        "rn-dc2-ss",
+        "rn-dc2-trojan",
+        "rn-dc2-vmess-ws",
+        "rn-dc2-vless-ws"
       ]
     },
     {
       "type": "selector",
       "tag": "🖥 YouTube",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2-vless-reality-vision",
+        "rn-dc2-hysteria2",
+        "rn-dc2-tuic",
+        "rn-dc2-ss",
+        "rn-dc2-trojan",
+        "rn-dc2-vmess-ws",
+        "rn-dc2-vless-ws"
       ]
     },
     {
       "type": "selector",
       "tag": "🎥 NETFLIX",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2-vless-reality-vision",
+        "rn-dc2-hysteria2",
+        "rn-dc2-tuic",
+        "rn-dc2-ss",
+        "rn-dc2-trojan",
+        "rn-dc2-vmess-ws",
+        "rn-dc2-vless-ws"
       ]
     },
     {
       "type": "selector",
       "tag": "🤖 OpenAI",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2-vless-reality-vision",
+        "rn-dc2-hysteria2",
+        "rn-dc2-tuic",
+        "rn-dc2-ss",
+        "rn-dc2-trojan",
+        "rn-dc2-vmess-ws",
+        "rn-dc2-vless-ws"
       ]
     },
     {
       "type": "selector",
       "tag": "🍎 Apple",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
+        "rn-dc2-vless-reality-vision",
+        "rn-dc2-hysteria2",
+        "rn-dc2-tuic",
+        "rn-dc2-ss",
+        "rn-dc2-trojan",
+        "rn-dc2-vmess-ws",
+        "rn-dc2-vless-ws",
         "direct"
       ]
     },
@@ -227,26 +227,26 @@
       "type": "selector",
       "tag": "📢 Google",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2-vless-reality-vision",
+        "rn-dc2-hysteria2",
+        "rn-dc2-tuic",
+        "rn-dc2-ss",
+        "rn-dc2-trojan",
+        "rn-dc2-vmess-ws",
+        "rn-dc2-vless-ws"
       ]
     },
     {
       "type": "selector",
       "tag": "Ⓜ️ Microsoft",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
+        "rn-dc2-vless-reality-vision",
+        "rn-dc2-hysteria2",
+        "rn-dc2-tuic",
+        "rn-dc2-ss",
+        "rn-dc2-trojan",
+        "rn-dc2-vmess-ws",
+        "rn-dc2-vless-ws",
         "direct"
       ]
     },
@@ -284,7 +284,7 @@
     },
     {
       "type": "vless",
-      "tag": "rn-dc2 vless-reality-vision",
+      "tag": "rn-dc2-vless-reality-vision",
       "server": "148.135.34.229",
       "server_port": 30001,
       "uuid": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
@@ -312,7 +312,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "rn-dc2 hysteria2",
+      "tag": "rn-dc2-hysteria2",
       "server": "148.135.34.229",
       "server_port": 30002,
       "up_mbps": 200,
@@ -333,7 +333,7 @@
     },
     {
       "type": "tuic",
-      "tag": "rn-dc2 tuic",
+      "tag": "rn-dc2-tuic",
       "server": "148.135.34.229",
       "server_port": 30003,
       "uuid": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
@@ -353,7 +353,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "rn-dc2 ss",
+      "tag": "rn-dc2-ss",
       "server": "148.135.34.229",
       "server_port": 30005,
       "method": "aes-128-gcm",
@@ -367,7 +367,7 @@
     },
     {
       "type": "trojan",
-      "tag": "rn-dc2 trojan",
+      "tag": "rn-dc2-trojan",
       "server": "148.135.34.229",
       "server_port": 30006,
       "password": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
@@ -389,7 +389,7 @@
     },
     {
       "type": "vmess",
-      "tag": "rn-dc2 vmess ws",
+      "tag": "rn-dc2-vmess-ws",
       "server": "speed.6565.eu.org",
       "server_port": 80,
       "uuid": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
@@ -411,7 +411,7 @@
     },
     {
       "type": "vless",
-      "tag": "rn-dc2 vless ws",
+      "tag": "rn-dc2-vless-ws",
       "server": "speed.6565.eu.org",
       "server_port": 443,
       "uuid": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
