@@ -569,7 +569,7 @@
               "protocol": "dns"
             }
           ],
-          "outbound": "dns"
+          "outbound": "dns-out"
         },
         {
           "type": "logical",
