@@ -69,8 +69,7 @@
     "final": "dns-remote",
     "fakeip": {  
       "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      // "inet6_range": "fc00::/18"  // 如果本地环境未启用IPV6，请删除此行
+      "inet4_range": "198.18.0.0/15"
     }
   },
   "inbounds": [
@@ -80,7 +79,6 @@
       "interface_name": "tun0",
       "stack": "mixed",
       "inet4_address": "172.16.0.0/16",
-      // "inet6_address": "fdfd:9527::1/32",  // 如果本地环境未启用IPV6，请删除此行
       "auto_route": true,
       "sniff": true
     }
