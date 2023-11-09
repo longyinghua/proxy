@@ -442,11 +442,11 @@
   ],
   "route": {
     "geosite": {
-      "download_url": "https://ghproxy.6565.eu.org/https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
+      "download_url": "https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
       "download_detour": "✈️ Proxy"
     },
     "geoip": {
-      "download_url": "https://ghproxy.6565.eu.org/https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
+      "download_url": "https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
       "download_detour": "✈️ Proxy"
     },
     "rules": [
