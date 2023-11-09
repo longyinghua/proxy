@@ -13,7 +13,7 @@
   "dns": {
     "servers": [
       {
-        "address": "tls://8.8.8.8",
+        "address": "tls://8.8.4.4",
         "detour": "✈️ Proxy",
         "tag": "dns-remote"
       },
@@ -69,7 +69,8 @@
     "final": "dns-remote",
     "fakeip": {  
       "enabled": true,
-      "inet4_range": "198.18.0.0/15"
+      "inet4_range": "198.18.0.0/15",
+      // "inet6_range": "fc00::/18"  // 如果本地环境未启用IPV6，请删除此行
     }
   },
   "inbounds": [
@@ -79,8 +80,9 @@
       "interface_name": "tun0",
       "stack": "mixed",
       "inet4_address": "172.16.0.0/16",
+      // "inet6_address": "fdfd:9527::1/32",  // 如果本地环境未启用IPV6，请删除此行
       "auto_route": true,
-      "sniff": true  
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -163,7 +165,6 @@
       "type": "selector",
       "tag": "🍎 Apple",
       "outbounds": [
-        "direct",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -172,7 +173,8 @@
         "rn-dc2 ss",
         "rn-dc2 trojan",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"  
+        "rn-dc2 vless ws",
+        "direct"
       ]
     },
     {
@@ -424,11 +426,11 @@
   ],
   "route": {
     "geosite": {
-      "download_url": "https://vercel.lyhk.xyz/proxy/github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
+      "download_url": "https://ghproxy.6565.eu.org/https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
       "download_detour": "✈️ Proxy"
       },
     "geoip": {
-      "download_url": "https://vercel.lyhk.xyz/proxy/github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
+      "download_url": "https://ghproxy.6565.eu.org/https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
       "download_detour": "✈️ Proxy"
       },
     "rules": [
