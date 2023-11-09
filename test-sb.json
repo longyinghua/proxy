@@ -33,7 +33,7 @@
                 "tag": "dns-remote"
             },
             {
-                "address": "underlying://0.0.0.0",
+                "address": "underlying://223.5.5.5",
                 "address_resolver": "dns-local",
                 "detour": "direct",
                 "strategy": "",
@@ -44,7 +44,7 @@
                 "tag": "dns-block"
             },
             {
-                "address": "underlying://0.0.0.0",
+                "address": "underlying://223.5.5.5",
                 "detour": "direct",
                 "tag": "dns-local"
             }
