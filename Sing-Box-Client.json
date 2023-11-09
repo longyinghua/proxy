@@ -67,7 +67,7 @@
       }
     ],
     "final": "dns-remote",
-    "fakeip": {  
+    "fakeip": {
       "enabled": true,
       "inet4_range": "198.18.0.0/15"
     }
@@ -241,23 +241,23 @@
     {
       "type": "vless",
       "tag": "rn-dc2 vless-reality-vision",
-      "server":"148.135.34.229",
-      "server_port":30001,
-      "uuid":"c5218979-f81d-457f-a02c-f59d7e7ff0d6",
-      "flow":"xtls-rprx-vision",
-      "packet_encoding":"xudp",
-      "tls":{
-          "enabled":true,
-          "server_name":"addons.mozilla.org",
-          "utls":{
-              "enabled":true,
-              "fingerprint":"chrome"
-          },
-          "reality":{
-              "enabled":true,
-              "public_key":"ZVXH2tyAgKeqSiPO9X63S5VFW0Abd8rNEnd1MlwDwDo",
-              "short_id":""
-          }
+      "server": "148.135.34.229",
+      "server_port": 30001,
+      "uuid": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "addons.mozilla.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "ZVXH2tyAgKeqSiPO9X63S5VFW0Abd8rNEnd1MlwDwDo",
+          "short_id": ""
+        }
       },
       "multiplex": {
         "enabled": true,
@@ -279,10 +279,12 @@
       },
       "password": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
       "tls": {
-          "enabled": true,
-          "insecure": true,
-          "server_name": "",
-          "alpn": [ "h3" ]
+        "enabled": true,
+        "insecure": true,
+        "server_name": "",
+        "alpn": [
+          "h3"
+        ]
       }
     },
     {
@@ -297,10 +299,12 @@
       "zero_rtt_handshake": false,
       "heartbeat": "10s",
       "tls": {
-          "enabled": true,
-          "insecure": true,
-          "server_name": "",
-          "alpn": [ "h3" ]
+        "enabled": true,
+        "insecure": true,
+        "server_name": "",
+        "alpn": [
+          "h3"
+        ]
       }
     },
     {
@@ -354,71 +358,71 @@
       "server_port": 30006,
       "password": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
       "tls": {
-        "enabled":true,
+        "enabled": true,
         "insecure": true,
-        "server_name":"",
+        "server_name": "",
         "utls": {
-          "enabled":true,
-          "fingerprint":"chrome"
+          "enabled": true,
+          "fingerprint": "chrome"
         }
       },
       "multiplex": {
-        "enabled":true,
-        "protocol":"h2mux",
+        "enabled": true,
+        "protocol": "h2mux",
         "max_connections": 16,
-        "padding":true
+        "padding": true
       }
     },
     {
       "type": "vmess",
       "tag": "rn-dc2 vmess ws",
-      "server":"speed.6565.eu.org",
-      "server_port":80,
-      "uuid":"c5218979-f81d-457f-a02c-f59d7e7ff0d6",
+      "server": "speed.6565.eu.org",
+      "server_port": 80,
+      "uuid": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
       "transport": {
-        "type":"ws",
-        "path":"/c5218979-f81d-457f-a02c-f59d7e7ff0d6-vmess",
+        "type": "ws",
+        "path": "/c5218979-f81d-457f-a02c-f59d7e7ff0d6-vmess",
         "headers": {
           "Host": "rn-dc2-vm.6565.eu.org"
         },
-        "max_early_data":2408,
-        "early_data_header_name":"Sec-WebSocket-Protocol"
+        "max_early_data": 2408,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "multiplex": {
-        "enabled":true,
-        "protocol":"h2mux",
-        "max_streams":16,
-        "padding":true
+        "enabled": true,
+        "protocol": "h2mux",
+        "max_streams": 16,
+        "padding": true
       }
     },
     {
       "type": "vless",
       "tag": "rn-dc2 vless ws",
-      "server":"speed.6565.eu.org",
-      "server_port":443,
-      "uuid":"c5218979-f81d-457f-a02c-f59d7e7ff0d6",
+      "server": "speed.6565.eu.org",
+      "server_port": 443,
+      "uuid": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
       "tls": {
-        "enabled":true,
-        "server_name":"rn-dc2-vl.6565.eu.org",
+        "enabled": true,
+        "server_name": "rn-dc2-vl.6565.eu.org",
         "utls": {
-          "enabled":true,
-          "fingerprint":"chrome"
+          "enabled": true,
+          "fingerprint": "chrome"
         }
       },
       "transport": {
-        "type":"ws",
-        "path":"/c5218979-f81d-457f-a02c-f59d7e7ff0d6-vless",
+        "type": "ws",
+        "path": "/c5218979-f81d-457f-a02c-f59d7e7ff0d6-vless",
         "headers": {
           "Host": "rn-dc2-vl.6565.eu.org"
         },
-        "max_early_data":2408,
-        "early_data_header_name":"Sec-WebSocket-Protocol"
+        "max_early_data": 2408,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "multiplex": {
-        "enabled":true,
-        "protocol":"h2mux",
-        "max_streams":16,
-        "padding":true
+        "enabled": true,
+        "protocol": "h2mux",
+        "max_streams": 16,
+        "padding": true
       }
     }
   ],
@@ -426,18 +430,20 @@
     "geosite": {
       "download_url": "https://ghproxy.6565.eu.org/https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
       "download_detour": "✈️ Proxy"
-      },
+    },
     "geoip": {
       "download_url": "https://ghproxy.6565.eu.org/https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
       "download_detour": "✈️ Proxy"
-      },
+    },
     "rules": [
       {
         "type": "logical",
         "mode": "or",
         "rules": [
           {
-            "port": [53],
+            "port": [
+              53
+            ],
             "protocol": "dns"
           }
         ],
@@ -448,8 +454,12 @@
         "mode": "and",
         "rules": [
           {
-            "network": ["udp"],
-            "port": [443]
+            "network": [
+              "udp"
+            ],
+            "port": [
+              443
+            ]
           }
         ],
         "outbound": "block"
