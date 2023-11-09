@@ -155,7 +155,8 @@
         "rn-dc2-trojan",
         "rn-dc2-vmess-ws",
         "rn-dc2-vless-ws"
-      ]
+      ],
+      "default": "rn-dc2-vmess-ws"
     },
     {
       "type": "selector",
@@ -168,7 +169,8 @@
         "rn-dc2-trojan",
         "rn-dc2-vmess-ws",
         "rn-dc2-vless-ws"
-      ]
+      ],
+      "default": "rn-dc2-vmess-ws"
     },
     {
       "type": "selector",
@@ -181,7 +183,8 @@
         "rn-dc2-trojan",
         "rn-dc2-vmess-ws",
         "rn-dc2-vless-ws"
-      ]
+      ],
+      "default": "rn-dc2-vmess-ws"
     },
     {
       "type": "selector",
@@ -194,7 +197,8 @@
         "rn-dc2-trojan",
         "rn-dc2-vmess-ws",
         "rn-dc2-vless-ws"
-      ]
+      ],
+      "default": "rn-dc2-vmess-ws"
     },
     {
       "type": "selector",
@@ -207,7 +211,8 @@
         "rn-dc2-trojan",
         "rn-dc2-vmess-ws",
         "rn-dc2-vless-ws"
-      ]
+      ],
+      "default": "rn-dc2-vmess-ws"
     },
     {
       "type": "selector",
@@ -234,7 +239,8 @@
         "rn-dc2-trojan",
         "rn-dc2-vmess-ws",
         "rn-dc2-vless-ws"
-      ]
+      ],
+      "default": "rn-dc2-vmess-ws"
     },
     {
       "type": "selector",
@@ -442,10 +448,12 @@
   ],
   "route": {
     "geosite": {
+      "path": "geoip.db",
       "download_url": "https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
       "download_detour": "✈️ Proxy"
     },
     "geoip": {
+      "path": "geosite.db",
       "download_url": "https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
       "download_detour": "✈️ Proxy"
     },
