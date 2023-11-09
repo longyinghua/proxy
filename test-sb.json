@@ -223,10 +223,10 @@
           "rn-dc2 tuic",
           "rn-dc2 ss",
           "rn-dc2 trojan",
-          "rn-dc2 vmess-ws",
+          "rn-dc2 vmess ws",
           "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2 vmess-ws"
+        "default": "rn-dc2 vmess ws"
       },
       {
         "type": "selector",
@@ -237,10 +237,10 @@
           "rn-dc2 tuic",
           "rn-dc2 ss",
           "rn-dc2 trojan",
-          "rn-dc2 vmess-ws",
+          "rn-dc2 vmess ws",
           "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2 vmess-ws"
+        "default": "rn-dc2 vmess ws"
       },
       {
         "type": "selector",
@@ -251,10 +251,10 @@
           "rn-dc2 tuic",
           "rn-dc2 ss",
           "rn-dc2 trojan",
-          "rn-dc2 vmess-ws",
+          "rn-dc2 vmess ws",
           "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2 vmess-ws"
+        "default": "rn-dc2 vmess ws"
       },
       {
         "type": "selector",
@@ -265,10 +265,10 @@
           "rn-dc2 tuic",
           "rn-dc2 ss",
           "rn-dc2 trojan",
-          "rn-dc2 vmess-ws",
+          "rn-dc2 vmess ws",
           "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2 vmess-ws"
+        "default": "rn-dc2 vmess ws"
       },
       {
         "type": "selector",
@@ -279,10 +279,10 @@
           "rn-dc2 tuic",
           "rn-dc2 ss",
           "rn-dc2 trojan",
-          "rn-dc2 vmess-ws",
+          "rn-dc2 vmess ws",
           "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2 vmess-ws"
+        "default": "rn-dc2 vmess ws"
       },
       {
         "type": "selector",
@@ -293,7 +293,7 @@
           "rn-dc2 tuic",
           "rn-dc2 ss",
           "rn-dc2 trojan",
-          "rn-dc2 vmess-ws",
+          "rn-dc2 vmess ws",
           "rn-dc2 vless-ws",
           "direct"
         ]
@@ -307,10 +307,10 @@
           "rn-dc2 tuic",
           "rn-dc2 ss",
           "rn-dc2 trojan",
-          "rn-dc2 vmess-ws",
+          "rn-dc2 vmess ws",
           "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2 vmess-ws"
+        "default": "rn-dc2 vmess ws"
       },
       {
         "type": "selector",
@@ -321,7 +321,7 @@
           "rn-dc2 tuic",
           "rn-dc2 ss",
           "rn-dc2 trojan",
-          "rn-dc2 vmess-ws",
+          "rn-dc2 vmess ws",
           "rn-dc2 vless-ws",
           "direct"
         ]
