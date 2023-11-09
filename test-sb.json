@@ -18,7 +18,7 @@
           "address": "https://1.1.1.1/dns-query",
           "address_resolver": "dns_resolver",
           "strategy": "ipv4_only",
-          "detour": "select"
+          "detour": "✈️ Proxy"
         },
         {
           "tag": "dns_direct",
