@@ -218,83 +218,83 @@
         "type": "selector",
         "tag": "✈️ Proxy",
         "outbounds": [
-          "rn-dc2-vless-reality-vision",
-          "rn-dc2-hysteria2",
-          "rn-dc2-tuic",
-          "rn-dc2-ss",
-          "rn-dc2-trojan",
-          "rn-dc2-vmess-ws",
-          "rn-dc2-vless-ws"
+          "rn-dc2 vless-reality-vision",
+          "rn-dc2 hysteria2",
+          "rn-dc2 tuic",
+          "rn-dc2 ss",
+          "rn-dc2 trojan",
+          "rn-dc2 vmess-ws",
+          "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2-vmess-ws"
+        "default": "rn-dc2 vmess-ws"
       },
       {
         "type": "selector",
         "tag": "📱 Telegram",
         "outbounds": [
-          "rn-dc2-vless-reality-vision",
-          "rn-dc2-hysteria2",
-          "rn-dc2-tuic",
-          "rn-dc2-ss",
-          "rn-dc2-trojan",
-          "rn-dc2-vmess-ws",
-          "rn-dc2-vless-ws"
+          "rn-dc2 vless-reality-vision",
+          "rn-dc2 hysteria2",
+          "rn-dc2 tuic",
+          "rn-dc2 ss",
+          "rn-dc2 trojan",
+          "rn-dc2 vmess-ws",
+          "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2-vmess-ws"
+        "default": "rn-dc2 vmess-ws"
       },
       {
         "type": "selector",
         "tag": "🖥 YouTube",
         "outbounds": [
-          "rn-dc2-vless-reality-vision",
-          "rn-dc2-hysteria2",
-          "rn-dc2-tuic",
-          "rn-dc2-ss",
-          "rn-dc2-trojan",
-          "rn-dc2-vmess-ws",
-          "rn-dc2-vless-ws"
+          "rn-dc2 vless-reality-vision",
+          "rn-dc2 hysteria2",
+          "rn-dc2 tuic",
+          "rn-dc2 ss",
+          "rn-dc2 trojan",
+          "rn-dc2 vmess-ws",
+          "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2-vmess-ws"
+        "default": "rn-dc2 vmess-ws"
       },
       {
         "type": "selector",
         "tag": "🎥 NETFLIX",
         "outbounds": [
-          "rn-dc2-vless-reality-vision",
-          "rn-dc2-hysteria2",
-          "rn-dc2-tuic",
-          "rn-dc2-ss",
-          "rn-dc2-trojan",
-          "rn-dc2-vmess-ws",
-          "rn-dc2-vless-ws"
+          "rn-dc2 vless-reality-vision",
+          "rn-dc2 hysteria2",
+          "rn-dc2 tuic",
+          "rn-dc2 ss",
+          "rn-dc2 trojan",
+          "rn-dc2 vmess-ws",
+          "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2-vmess-ws"
+        "default": "rn-dc2 vmess-ws"
       },
       {
         "type": "selector",
         "tag": "🤖 OpenAI",
         "outbounds": [
-          "rn-dc2-vless-reality-vision",
-          "rn-dc2-hysteria2",
-          "rn-dc2-tuic",
-          "rn-dc2-ss",
-          "rn-dc2-trojan",
-          "rn-dc2-vmess-ws",
-          "rn-dc2-vless-ws"
+          "rn-dc2 vless-reality-vision",
+          "rn-dc2 hysteria2",
+          "rn-dc2 tuic",
+          "rn-dc2 ss",
+          "rn-dc2 trojan",
+          "rn-dc2 vmess-ws",
+          "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2-vmess-ws"
+        "default": "rn-dc2 vmess-ws"
       },
       {
         "type": "selector",
         "tag": "🍎 Apple",
         "outbounds": [
-          "rn-dc2-vless-reality-vision",
-          "rn-dc2-hysteria2",
-          "rn-dc2-tuic",
-          "rn-dc2-ss",
-          "rn-dc2-trojan",
-          "rn-dc2-vmess-ws",
-          "rn-dc2-vless-ws",
+          "rn-dc2 vless-reality-vision",
+          "rn-dc2 hysteria2",
+          "rn-dc2 tuic",
+          "rn-dc2 ss",
+          "rn-dc2 trojan",
+          "rn-dc2 vmess-ws",
+          "rn-dc2 vless-ws",
           "direct"
         ]
       },
@@ -302,27 +302,27 @@
         "type": "selector",
         "tag": "📢 Google",
         "outbounds": [
-          "rn-dc2-vless-reality-vision",
-          "rn-dc2-hysteria2",
-          "rn-dc2-tuic",
-          "rn-dc2-ss",
-          "rn-dc2-trojan",
-          "rn-dc2-vmess-ws",
-          "rn-dc2-vless-ws"
+          "rn-dc2 vless-reality-vision",
+          "rn-dc2 hysteria2",
+          "rn-dc2 tuic",
+          "rn-dc2 ss",
+          "rn-dc2 trojan",
+          "rn-dc2 vmess-ws",
+          "rn-dc2 vless-ws"
         ],
-        "default": "rn-dc2-vmess-ws"
+        "default": "rn-dc2 vmess-ws"
       },
       {
         "type": "selector",
         "tag": "Ⓜ️ Microsoft",
         "outbounds": [
-          "rn-dc2-vless-reality-vision",
-          "rn-dc2-hysteria2",
-          "rn-dc2-tuic",
-          "rn-dc2-ss",
-          "rn-dc2-trojan",
-          "rn-dc2-vmess-ws",
-          "rn-dc2-vless-ws",
+          "rn-dc2 vless-reality-vision",
+          "rn-dc2 hysteria2",
+          "rn-dc2 tuic",
+          "rn-dc2 ss",
+          "rn-dc2 trojan",
+          "rn-dc2 vmess-ws",
+          "rn-dc2 vless-ws",
           "direct"
         ]
       },
