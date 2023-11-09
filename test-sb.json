@@ -52,13 +52,13 @@
     },
     "inbounds": [
         {
-            "domain_strategy": "",
-            "listen": "::",
-            "listen_port": 2080,
-            "sniff": true,
-            "sniff_override_destination": false,
-            "tag": "mixed-in",
-            "type": "mixed"
+            "type": "tun",
+            "tag": "sing-tun",
+            "interface_name": "tun0",
+            "stack": "mixed",
+            "inet4_address": "172.16.0.0/16",
+            "auto_route": true,
+            "sniff": true
         }
     ],
     "log": {
