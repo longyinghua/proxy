@@ -1,0 +1,182 @@
+{
+    "dns": {
+        "independent_cache": true,
+        "rules": [
+            {
+                "domain": [],
+                "domain_keyword": [],
+                "domain_regex": [],
+                "domain_suffix": [],
+                "geosite": [
+                    "cn"
+                ],
+                "server": "dns-direct"
+            },
+            {
+                "query_type": [
+                    32,
+                    33
+                ],
+                "server": "dns-block"
+            },
+            {
+                "domain_suffix": ".lan",
+                "server": "dns-block"
+            }
+        ],
+        "servers": [
+            {
+                "address": "https://8.8.8.8/dns-query",
+                "address_resolver": "dns-local",
+                "detour": "proxy",
+                "strategy": "",
+                "tag": "dns-remote"
+            },
+            {
+                "address": "underlying://0.0.0.0",
+                "address_resolver": "dns-local",
+                "detour": "direct",
+                "strategy": "",
+                "tag": "dns-direct"
+            },
+            {
+                "address": "rcode://success",
+                "tag": "dns-block"
+            },
+            {
+                "address": "underlying://0.0.0.0",
+                "detour": "direct",
+                "tag": "dns-local"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "domain_strategy": "",
+            "listen": "::",
+            "listen_port": 2080,
+            "sniff": true,
+            "sniff_override_destination": false,
+            "tag": "mixed-in",
+            "type": "mixed"
+        }
+    ],
+    "log": {
+        "level": "info"
+    },
+    "outbounds": [
+        {
+            "domain_strategy": "",
+            "down_mbps": 0,
+            "obfs": {
+                "password": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
+                "type": "salamander"
+            },
+            "password": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
+            "server": "148.135.34.229",
+            "server_port": 30002,
+            "tag": "proxy",
+            "tls": {
+                "alpn": "h3",
+                "certificate": "",
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": ""
+            },
+            "type": "hysteria2",
+            "up_mbps": 0
+        },
+        {
+            "tag": "direct",
+            "type": "direct"
+        },
+        {
+            "tag": "bypass",
+            "type": "direct"
+        },
+        {
+            "tag": "block",
+            "type": "block"
+        },
+        {
+            "tag": "dns-out",
+            "type": "dns"
+        }
+    ],
+    "route": {
+        "auto_detect_interface": false,
+        "final": "proxy",
+        "geoip": {
+            "path": "https://ghproxy.6565.eu.org/https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db"
+        },
+        "geosite": {
+            "path": "https://ghproxy.6565.eu.org/https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db"
+        },
+        "rules": [
+            {
+                "outbound": "dns-out",
+                "protocol": "dns"
+            },
+            {
+                "domain": [],
+                "domain_keyword": [],
+                "domain_regex": [],
+                "domain_suffix": [
+                    "appcenter.ms",
+                    "app-measurement.com",
+                    "firebase.io",
+                    "crashlytics.com",
+                    "google-analytics.com"
+                ],
+                "geosite": [
+                    "category-ads-all"
+                ],
+                "outbound": "block"
+            },
+            {
+                "domain": [],
+                "domain_keyword": [],
+                "domain_regex": [],
+                "domain_suffix": [],
+                "geosite": [
+                    "cn"
+                ],
+                "outbound": "bypass"
+            },
+            {
+                "geoip": [
+                    "cn",
+                    "private"
+                ],
+                "ip_cidr": [],
+                "outbound": "bypass"
+            },
+            {
+                "network": "udp",
+                "outbound": "block",
+                "port": [
+                    135,
+                    137,
+                    138,
+                    139,
+                    5353
+                ]
+            },
+            {
+                "ip_cidr": [
+                    "224.0.0.0/3",
+                    "ff00::/8"
+                ],
+                "outbound": "block"
+            },
+            {
+                "outbound": "block",
+                "source_ip_cidr": [
+                    "224.0.0.0/3",
+                    "ff00::/8"
+                ]
+            }
+        ]
+    }
+}
