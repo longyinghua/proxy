@@ -227,11 +227,7 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan"
+        "rn-dc2 vless ws"
       ]
     },
     {
@@ -242,11 +238,7 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan"
+        "rn-dc2 vless ws"
       ]
     },
     {
@@ -257,11 +249,7 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan"
+        "rn-dc2 vless ws"
       ]
     },
     {
@@ -272,11 +260,7 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan"
+        "rn-dc2 vless ws"
       ]
     },
     {
@@ -287,11 +271,7 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan"
+        "rn-dc2 vless ws"
       ]
     },
     {
@@ -302,11 +282,7 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan"
+        "rn-dc2 vless ws"
       ]
     },
     {
@@ -318,10 +294,6 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
         "direct"
       ],
       "default": "direct"
@@ -335,10 +307,6 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
         "direct"
       ],
       "default": "direct"
@@ -406,72 +374,6 @@
           "insecure": true,
           "server_name": "",
           "alpn": [ "h3" ]
-      }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "rn-dc2 ShadowTLS v3",
-      "method": "2022-blake3-aes-128-gcm",
-      "password": "kjdkEXpofmHOSeBOZ5bt3g==",
-      "detour": "shadowtls-out",
-      "udp_over_tcp": false,
-      "multiplex": {
-        "enabled": true,
-        "protocol": "h2mux",
-        "max_connections": 16,
-        "padding": true
-      }
-    },
-    {
-      "type": "shadowtls",
-      "tag": "shadowtls-out",
-      "server": "148.135.34.229",
-      "server_port": 30004,
-      "version": 3,
-      "password": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
-      "tls": {
-        "enabled": true,
-        "server_name": "addons.mozilla.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "rn-dc2 ss",
-      "server": "148.135.34.229",
-      "server_port": 30005,
-      "method": "aes-128-gcm",
-      "password": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
-      "multiplex": {
-        "enabled": true,
-        "protocol": "h2mux",
-        "max_connections": 16,
-        "padding": true
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "rn-dc2 trojan",
-      "server": "148.135.34.229",
-      "server_port": 30006,
-      "password": "c5218979-f81d-457f-a02c-f59d7e7ff0d6",
-      "tls": {
-        "enabled":true,
-        "insecure": true,
-        "server_name":"",
-        "utls": {
-          "enabled":true,
-          "fingerprint":"chrome"
-        }
-      },
-      "multiplex": {
-        "enabled":true,
-        "protocol":"h2mux",
-        "max_connections": 16,
-        "padding":true
       }
     },
     {
