@@ -4,7 +4,7 @@
       "external_controller": "0.0.0.0:9090",
       "external_ui": "metacubexd",
       "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "select",
+      "external_ui_download_detour": "✈️ Proxy",
       "secret": "",
       "default_mode": "rule",
       "store_selected": true,
@@ -18,7 +18,7 @@
         "address": "https://1.1.1.1/dns-query",
         "address_resolver": "dns_resolver",
         "strategy": "ipv4_only",
-        "detour": "select"
+        "detour": "✈️ Proxy"
       },
       {
         "tag": "dns_direct",
@@ -216,35 +216,127 @@
   "outbounds": [
     {
       "type": "selector",
-      "tag": "select",
+      "tag": "✈️ Proxy",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
         "rn-dc2 ShadowTLS v3",
         "shadowtls-out",
         "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
-      ],
-      "default": "rn-dc2 vmess ws"
+        "rn-dc2 trojan"
+      ]
     },
     {
       "type": "selector",
-      "tag": "openai",
+      "tag": "📱 Telegram",
       "outbounds": [
-        "rn-dc2 vless-reality-vision",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
+        "rn-dc2 ShadowTLS v3",
+        "shadowtls-out",
+        "rn-dc2 ss",
+        "rn-dc2 trojan"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🖥 YouTube",
+      "outbounds": [
+        "rn-dc2 hysteria2",
+        "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
+        "rn-dc2 ShadowTLS v3",
+        "shadowtls-out",
+        "rn-dc2 ss",
+        "rn-dc2 trojan"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🎥 NETFLIX",
+      "outbounds": [
+        "rn-dc2 hysteria2",
+        "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
+        "rn-dc2 ShadowTLS v3",
+        "shadowtls-out",
+        "rn-dc2 ss",
+        "rn-dc2 trojan"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🤖 OpenAI",
+      "outbounds": [
+        "rn-dc2 hysteria2",
+        "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
+        "rn-dc2 ShadowTLS v3",
+        "shadowtls-out",
+        "rn-dc2 ss",
+        "rn-dc2 trojan"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "📢 Google",
+      "outbounds": [
+        "rn-dc2 hysteria2",
+        "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
+        "rn-dc2 ShadowTLS v3",
+        "shadowtls-out",
+        "rn-dc2 ss",
+        "rn-dc2 trojan"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🍎 Apple",
+      "outbounds": [
+        "rn-dc2 hysteria2",
+        "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
         "rn-dc2 ShadowTLS v3",
         "shadowtls-out",
         "rn-dc2 ss",
         "rn-dc2 trojan",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "direct"
       ],
-      "default": "rn-dc2 vmess ws"
+      "default": "direct"
+    },
+    {
+      "type": "selector",
+      "tag": "Ⓜ️ Microsoft",
+      "outbounds": [
+        "rn-dc2 hysteria2",
+        "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
+        "rn-dc2 ShadowTLS v3",
+        "shadowtls-out",
+        "rn-dc2 ss",
+        "rn-dc2 trojan",
+        "direct"
+      ],
+      "default": "direct"
     },
     {
       "type": "vless",
@@ -430,6 +522,26 @@
       }
     },
     {
+      "type": "selector",
+      "tag": "🎯 direct",
+      "outbounds": [
+        "direct",
+        "block",
+        "✈️ Proxy"
+      ],
+      "default": "direct"
+    },
+    {
+      "type": "selector",
+      "tag": "🛑 block",
+      "outbounds": [
+        "block",
+        "direct",
+        "✈️ Proxy"
+      ],
+      "default": "block"
+    },
+    {
       "type": "direct",
       "tag": "direct"
     },
@@ -446,12 +558,12 @@
     "geoip": {
       "path": "geoip.db",
       "download_url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/geoip.db",
-      "download_detour": "select"
+      "download_detour": "✈️ Proxy"
     },
     "geosite": {
       "path": "geosite.db",
       "download_url": "https://github.com/yangchuansheng/sing-geosite/releases/latest/download/geosite.db",
-      "download_detour": "select"
+      "download_detour": "✈️ Proxy"
     },
     "rules": [
       {
@@ -464,7 +576,7 @@
       },
       {
         "clash_mode": "global",
-        "outbound": "select"
+        "outbound": "✈️ Proxy"
       },
       {
         "process_name": [
@@ -482,6 +594,13 @@
         "outbound": "direct"
       },
       {
+        "process_name": [
+          "DropboxMacUpdate",
+          "Dropbox"
+        ],
+        "outbound": "✈️ Proxy"
+      },
+      {
         "process_path": [
           "/usr/libexec/rosetta/oahd"
         ],
@@ -494,67 +613,13 @@
         "outbound": "block"
       },
       {
-        "geosite": [
-          "openai"
-        ],
-        "geoip": [
-          "openai"
-        ],
-        "package_name": [
-          "com.openai.chatgpt"
-        ],
-        "outbound": "openai"
-      },
-      {
-        "domain_suffix": [
-          "openai.com",
-          "depay.one",
-          "orbstack.dev"
-        ],
-        "outbound": "select"
-      },
-      {
-        "process_name": [
-          "DropboxMacUpdate",
-          "Dropbox"
-        ],
-        "outbound": "select"
-      },
-      {
         "package_name": [
           "com.google.android.youtube",
           "com.android.vending",
           "org.telegram.messenger",
           "org.telegram.plus"
         ],
-        "outbound": "select"
-      },
-      {
-        "domain": [
-          "accounts.google.com"
-        ],
-        "domain_suffix": [
-          "sourceforge.net",
-          "fhjasokiwq.com"
-        ],
-        "outbound": "select"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "geosite": [
-              "category-games@cn"
-            ]
-          },
-          {
-            "geoip": [
-              "cn"
-            ]
-          }
-        ],
-        "outbound": "direct"
+        "outbound": "✈️ Proxy"
       },
       {
         "type": "logical",
@@ -572,7 +637,7 @@
             "invert": true
           }
         ],
-        "outbound": "select"
+        "outbound": "✈️ Proxy"
       },
       {
         "type": "logical",
@@ -605,17 +670,160 @@
         "outbound": "direct"
       },
       {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "network": ["udp"],
+            "port": [443]
+          }
+        ],
+        "outbound": "block"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "geosite": [
+              "category-games@cn"
+            ]
+          },
+          {
+            "geoip": [
+              "cn"
+            ]
+          }
+        ],
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          "appcenter.ms",
+          "app-measurement.com",
+          "firebase.io",
+          "crashlytics.com",
+          "google-analytics.com"
+        ],
+        "outbound": "block"
+      },
+      {
+        "domain_suffix": [
+          "openai.com",
+          "depay.one",
+          "orbstack.dev",
+          "googleapis.cn"
+        ],
+        "outbound": "✈️ Proxy"
+      },
+      {
+        "domain": [
+          "accounts.google.com"
+        ],
+        "domain_suffix": [
+          "sourceforge.net",
+          "fhjasokiwq.com"
+        ],
+        "outbound": "✈️ Proxy"
+      },
+      {
         "geosite": [
-          "google",
+          "category-ads-all"
+        ],
+        "outbound": "🛑 block"
+      },
+      {
+        "geosite": [
           "youtube"
         ],
-        "geoip": [
-          "google",
-          "telegram",
-          "twitter",
+        "outbound": "🖥 YouTube"
+      },
+      {
+        "geosite": [
           "netflix"
         ],
-        "outbound": "select"
+        "outbound": "🎥 NETFLIX"
+      },
+      {
+        "geosite": [
+          "openai@ads"
+        ],
+        "outbound": "block"
+      },
+      {
+        "geosite": [
+          "openai"
+        ],
+        "geoip": [
+          "openai"
+        ],
+        "package_name": [
+          "com.openai.chatgpt"
+        ],
+        "outbound": "🤖 OpenAI"
+      },
+      {
+        "geosite": [
+          "apple"
+        ],
+        "outbound": "🍎 Apple"
+      },
+      {
+        "geosite": [
+          "google"
+        ],
+        "outbound": "📢 Google"
+      },
+      {
+        "geosite": [
+          "microsoft"
+        ],
+        "outbound": "Ⓜ️ Microsoft"
+      },
+      {
+        "geosite": [
+          "geolocation-!cn",
+          "tld-!cn"
+        ],
+        "outbound": "✈️ Proxy"
+      },
+      {
+        "geosite": [
+          "private",
+          "cn"
+        ],
+        "outbound": "🎯 direct"
+      },
+      {
+        "geoip": [
+          "telegram"
+        ],
+        "outbound": "📱 Telegram"
+      },
+      {
+        "geoip": [
+          "netflix"
+        ],
+        "outbound": "🎥 NETFLIX"
+      },
+      {
+        "geoip": [
+          "google"
+        ],
+        "outbound": "📢 Google"
+      },
+      {
+        "geoip": [
+          "apple"
+        ],
+        "outbound": "🍎 Apple"
+      },
+      {
+        "geoip": [
+          "private",
+          "cn"
+        ],
+        "outbound": "🎯 direct"
       }
     ],
     "final": "direct",
