@@ -1,4 +1,9 @@
 {
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
   "experimental": {
     "clash_api": {
       "external_controller": "0.0.0.0:9090",
