@@ -1,7 +1,7 @@
 {
   "log": {
     "disabled": false,
-    "level": "info",
+    "level": "warn",
     "timestamp": true
   },
   "experimental": {
@@ -161,22 +161,6 @@
     },
     {
       "type": "selector",
-      "tag": "🍎 Apple",
-      "outbounds": [
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 vless-reality-vision",
-        "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
-        "rn-dc2 ShadowTLS v3",
-        "shadowtls-out",
-        "rn-dc2 ss",
-        "rn-dc2 trojan",
-        "direct"
-      ]
-    },
-    {
-      "type": "selector",
       "tag": "📢 Google",
       "outbounds": [
         "rn-dc2 hysteria2",
@@ -192,6 +176,23 @@
     },
     {
       "type": "selector",
+      "tag": "🍎 Apple",
+      "outbounds": [
+        "rn-dc2 hysteria2",
+        "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws",
+        "rn-dc2 ShadowTLS v3",
+        "shadowtls-out",
+        "rn-dc2 ss",
+        "rn-dc2 trojan",
+        "direct"
+      ],
+      "default": "direct"
+    },
+    {
+      "type": "selector",
       "tag": "Ⓜ️ Microsoft",
       "outbounds": [
         "rn-dc2 hysteria2",
@@ -204,7 +205,8 @@
         "rn-dc2 ss",
         "rn-dc2 trojan",
         "direct"
-      ]
+      ],
+      "default": "direct"
     },
     {
       "type": "selector",
@@ -372,7 +374,7 @@
     {
       "type": "vmess",
       "tag": "rn-dc2 vmess ws",
-      "server":"speed.6565.eu.org",
+      "server":"cfip.6565.eu.org",
       "server_port":80,
       "uuid":"c5218979-f81d-457f-a02c-f59d7e7ff0d6",
       "transport": {
@@ -394,7 +396,7 @@
     {
       "type": "vless",
       "tag": "rn-dc2 vless ws",
-      "server":"speed.6565.eu.org",
+      "server":"cfip.6565.eu.org",
       "server_port":443,
       "uuid":"c5218979-f81d-457f-a02c-f59d7e7ff0d6",
       "tls": {
@@ -424,11 +426,11 @@
   ],
   "route": {
     "geosite": {
-      "download_url": "https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
+      "download_url": "https://github.com/lyc8503/sing-box-rules/releases/latest/download/geosite.db",
       "download_detour": "✈️ Proxy"
       },
     "geoip": {
-      "download_url": "https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
+      "download_url": "https://github.com/lyc8503/sing-box-rules/releases/latest/download/geoip.db",
       "download_detour": "✈️ Proxy"
       },
     "rules": [
