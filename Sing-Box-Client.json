@@ -35,14 +35,6 @@
     ],
     "rules": [
       {
-        "clash_mode": "direct",
-        "server": "dns-direct"
-      },
-      {
-        "clash_mode": "global",
-        "server": "dns-remote"
-      },
-      {
         "geosite": [
           "category-ads-all"
         ],
