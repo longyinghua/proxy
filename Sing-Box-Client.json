@@ -6,8 +6,14 @@
   },
   "experimental": {
     "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "store_selected": true
+      "external_controller": "0.0.0.0:9090",
+      "external_ui": "metacubexd",
+      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "✈️ Proxy",
+      "secret": "",
+      "default_mode": "rule",
+      "store_selected": true,
+      "cache_file": "cache.db"
     }
   },
   "dns": {
@@ -28,6 +34,14 @@
       }
     ],
     "rules": [
+      {
+        "clash_mode": "direct",
+        "server": "dns_direct"
+      },
+      {
+        "clash_mode": "global",
+        "server": "dns_proxy"
+      },
       {
         "geosite": [
           "category-ads-all"
