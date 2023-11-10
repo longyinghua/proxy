@@ -234,8 +234,10 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
-      ]
+        "rn-dc2 vless ws",
+        "auto"
+      ],
+      "default": "rn-dc2 hysteria2"
     },
     {
       "type": "selector",
@@ -245,7 +247,8 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2 vless ws",
+        "auto"
       ]
     },
     {
@@ -256,7 +259,8 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2 vless ws",
+        "auto"
       ]
     },
     {
@@ -267,7 +271,8 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2 vless ws",
+        "auto"
       ]
     },
     {
@@ -278,7 +283,8 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2 vless ws",
+        "auto"
       ]
     },
     {
@@ -289,7 +295,8 @@
         "rn-dc2 tuic",
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws"
+        "rn-dc2 vless ws",
+        "auto"
       ]
     },
     {
@@ -301,6 +308,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
+        "auto",
         "direct"
       ],
       "default": "direct"
@@ -314,6 +322,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
+        "auto",
         "direct"
       ],
       "default": "direct"
@@ -434,6 +443,21 @@
         "max_streams":16,
         "padding":true
       }
+    },
+    {
+      "tag": "auto",
+      "type": "urltest",
+      "outbounds": [
+        "rn-dc2 hysteria2",
+        "rn-dc2 tuic",
+        "rn-dc2 vless-reality-vision",
+        "rn-dc2 vmess ws",
+        "rn-dc2 vless ws"
+      ],
+      "url": "https://cp.cloudflare.com/generate_204",
+      "interval": "1m",
+      "tolerance": 50,
+      "interrupt_exist_connections": false
     },
     {
       "type": "selector",
