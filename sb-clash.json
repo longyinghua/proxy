@@ -235,7 +235,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "auto"
+        "✈️ auto"
       ],
       "default": "rn-dc2 hysteria2"
     },
@@ -248,7 +248,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "auto"
+        "✈️ auto"
       ]
     },
     {
@@ -260,7 +260,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "auto"
+        "✈️ auto"
       ]
     },
     {
@@ -272,7 +272,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "auto"
+        "✈️ auto"
       ]
     },
     {
@@ -284,7 +284,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "auto"
+        "✈️ auto"
       ]
     },
     {
@@ -296,7 +296,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "auto"
+        "✈️ auto"
       ]
     },
     {
@@ -308,7 +308,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "auto",
+        "✈️ auto",
         "direct"
       ],
       "default": "direct"
@@ -322,7 +322,7 @@
         "rn-dc2 vless-reality-vision",
         "rn-dc2 vmess ws",
         "rn-dc2 vless ws",
-        "auto",
+        "✈️ auto",
         "direct"
       ],
       "default": "direct"
@@ -445,7 +445,7 @@
       }
     },
     {
-      "tag": "auto",
+      "tag": "✈️ auto",
       "type": "urltest",
       "outbounds": [
         "rn-dc2 hysteria2",
