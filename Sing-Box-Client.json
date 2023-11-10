@@ -36,11 +36,11 @@
     "rules": [
       {
         "clash_mode": "direct",
-        "server": "dns_direct"
+        "server": "dns-direct"
       },
       {
         "clash_mode": "global",
-        "server": "dns_proxy"
+        "server": "dns-remote"
       },
       {
         "geosite": [
