@@ -477,7 +477,7 @@
     {
       "type": "vmess",
       "tag": "rn-dc2 vmess ws",
-      "server":"speed.6565.eu.org",
+      "server":"cfip.6565.eu.org",
       "server_port":80,
       "uuid":"c5218979-f81d-457f-a02c-f59d7e7ff0d6",
       "transport": {
@@ -499,7 +499,7 @@
     {
       "type": "vless",
       "tag": "rn-dc2 vless ws",
-      "server":"speed.6565.eu.org",
+      "server":"cfip.6565.eu.org",
       "server_port":443,
       "uuid":"c5218979-f81d-457f-a02c-f59d7e7ff0d6",
       "tls": {
