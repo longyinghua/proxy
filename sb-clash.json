@@ -53,6 +53,13 @@
         "server": "dns_proxy"
       },
       {
+        "geosite": [
+          "category-ads-all"
+        ],
+        "disable_cache": true,
+        "server": "dns-block"
+      },
+      {
         "process_name": [
           "TencentMeeting",
           "NemoDesktop",
