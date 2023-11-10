@@ -1,0 +1,314 @@
+{
+  // 日志，info，全显示
+  "log": {
+    "disabled": false,  // 禁用日志，关闭状态，意为日志启用
+    "level": "info",  // 日志等级，可选值：trace debug info warn error fatal panic
+    "timestamp": true  // 添加时间到每行日志
+  },
+
+  // DNS，使用Google DNS
+  "dns": {
+    "servers": [
+      {
+        "tag": "google",
+        "address": "udp://8.8.8.8"  // 可改，支持 TCP UDP DOT DOH DOQ H3等，具体请看Sing-Box官方文档
+      }
+    ]
+  },
+
+  // 入站节点
+  "inbounds": [
+    // VLESS - Reality + Vision（开始-协议1）
+    {
+      "type": "vless",
+      "tag": "VLESS-Reality+Vision",  // 可改，给节点一个备注
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "users": [
+        {
+          "name": "singbox",  // 可改，多用户配置时用作区分
+          "uuid": "UUID",  // 改，节点UUID，使用 sing-box generate uuid 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate uuid）
+          "flow": "xtls-rprx-vision"  // 可改，流控
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "域名",  // 改，与下面的一致
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "域名",  // 改，填想要偷取证书的域名，与上面一致
+            "server_port": 443  // 可改，偷取证书的域名的端口，绝大部分情况为443
+          },
+          "private_key": "私钥",  // 改，私钥，使用 sing-box generate reality-keypair 生成 （无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate reality-keypair）
+          "short_id": [
+            "短ID"  // 改，短ID，使用 openssl rand -hex 8 生成
+          ]
+        }
+      }
+    },
+    // VLESS - Reality + Vision（结束，如果您不用此协议，从这行一直删到开始-协议1为止）
+
+    // VLESS - Reality + Padding（开始-协议2) (padding为Sing-Box官方推出的填充功能，类似xray的vision，需要配合多路复用一同启用，适合喜欢多路复用用户）
+    {
+      "type": "vless",
+      "tag": "VLESS-Reality+Padding",  // 可改，给节点一个备注
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "users": [
+        {
+          "name": "singbox",  // 可改，多用户配置时用作区分
+          "uuid": "UUID",  // 改，节点UUID，使用 sing-box generate uuid 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate uuid）
+          "flow": ""  // 注意，启用Padding，流控需要留空，与vision冲突
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "域名",  // 改，与下面的一致
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "域名",  // 改，填想要偷取证书的域名，与上面一致
+            "server_port": 443  // 可改，偷取证书的域名的端口，绝大部分情况为443
+          },
+          "private_key": "私钥",  // 改，私钥，使用 sing-box generate reality-keypair 生成 （无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate reality-keypair）
+          "short_id": [
+            "短ID"  // 改，短ID，使用 openssl rand -hex 8 生成
+          ]
+        }
+      }
+    },
+    // VLESS - Reality + Padding（结束，如果您不用此协议，从这行一直删到开始-协议2为止）
+
+    // Trojan - TLS + Padding（开始-协议3）
+    {
+      "type": "trojan",
+      "tag": "Trojan-TLS+Padding",  // 可改，给节点一个备注
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "users": [
+        {
+          "name": "singbox",  // 可改，多用户配置时用作区分
+          "password": "密码"  // 改，节点密码，可使用UUID或其他，如使用UUID，则可以使用 sing-box generate uuid 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate uuid）
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "certificate_path": "/域名/证书/存放/绝对路径",  // 改，域名证书存放的绝对路径
+        "key_path": "/域名/私钥/存放/绝对路径"  // 改，域名私钥存放的绝对路径
+      }
+    },
+    // Trojan - TLS + Padding（结束，如果您不用此协议，从这行一直删到开始-协议3为止）
+
+    // VLESS + WS + TLS + CDN + Padding（开始-协议4）
+    {
+      "type": "vless",
+      "tag": "VLESS-WS+TLS+CDN+Padding",  // 可改，给节点一个备注
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "users": [
+        {
+          "name": "singbox",  // 可改，多用户配置时用作区分
+          "uuid": "UUID",  // 改，节点UUID，使用 sing-box generate uuid 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate uuid）
+          "flow": ""  // 注意，启用Padding，流控需要留空，与vision冲突
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "certificate_path": "/域名/证书/存放/绝对路径",  // 改，域名证书存放的绝对路径
+        "key_path": "/域名/私钥/存放/绝对路径"  // 改，域名私钥存放的绝对路径
+      },
+      "transport": {
+        "type": "ws",  // 启用ws
+        "path": "路径",  // 改，ws路径
+        "max_early_data": 2048,  // 可改，请求中允许的最大有效负载大小。默认启用，具体请看Sing-Box官方文档
+        "early_data_header_name": "Sec-WebSocket-Protocol"  // 可改，填写Sec-WebSocket-Protocol，就会和Xray-core兼容
+      }
+    },
+    // VLESS + WS + TLS + CDN + Padding（结束，如果您不用此协议，从这行一直删到开始-协议4为止）
+
+    // Shadowsocks + Padding（开始-协议5）
+    {
+      "type": "shadowsocks",
+      "tag": "shadowsocks",
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "method": "2022-blake3-aes-128-gcm",  // 可改
+      "password": "密码"  // 改，使用 sing-box generate rand --base64 16 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate rand --base64 16）
+    },
+    // Shadowsocks + Padding（结束，如果您不用此协议，从这行一直删到开始-协议5为止）
+
+    // Shadowsocks + ShadowTLS + Padding（开始-协议6）
+    {
+      "type": "shadowtls",
+      "tag": "Shadowsocks+ShadowTLS+Padding",  // 可改，给节点一个备注
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "version": 3,  // 可改，ShadowTLS 协议版本，默认为1，建议启用3
+      "users": [
+        {
+          "name": "singbox",  // 可改，多用户配置时用作区分
+          "password": "密码"  // 改，使用 sing-box generate rand --base64 16 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate rand --base64 16）
+        }
+      ],
+      "handshake": {
+        "server": "域名",  // 改，填想要偷取证书的域名
+        "server_port": 443  // 可改，偷取证书的域名的端口，绝大部分情况为443
+      },
+      "strict_mode": true,  // 可改，ShadowTLS 严格模式，仅在ShadowTLS版本为3时可用
+      "detour": "shadowsocks-shadowtls-in"  // 可改，转发到指定ss节点，tag要和下面一致，不然会错误
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "shadowsocks-shadowtls-in",  // 可改，转发到到的ss节点，tag要和上面一致，不然会错误
+      "listen": "127.0.0.1",  // 可改，除非你也想使用ShadowTLS+Shadowsocks同时，直接连接Shadowsocks，那么就可以把listen内容直接改成 :: 即可
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "method": "2022-blake3-aes-128-gcm",  // 可改
+      "password": "密码"  // 改，使用 sing-box generate rand --base64 16 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate rand --base64 16）
+    },
+    // Shadowsocks + ShadowTLS + Padding（结束，如果您不用此协议，从这行一直删到开始-协议6为止）
+
+    // Hysteria协议（开始-协议7）
+    {
+      "type": "hysteria",
+      "tag": "Hysteria",  // 可改，给节点一个备注
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "up_mbps": 300,  // 改，期望中客户端的下载速度，单位为mbps
+      "down_mbps": 50,  // 改，期望中客户端的上传速度，单位为mbps
+      "obfs": "obfs密码",  // 改，混淆密码,可使用openssl rand -hex 20生成
+      "users": [
+        {
+          "name": "singbox",  // 可改，多用户配置时用作区分
+          "auth_str": "auth_str密码"  // 改，auth_str密码，可使用 sing-box generate rand --base64 16 生成
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "alpn": [ "h3" ],  // 可改，但默认就好，除非你懂这是干什么的
+        "certificate_path": "/域名/证书/存放/绝对路径",  // 改，域名证书存放的绝对路径
+        "key_path": "/域名/私钥/存放/绝对路径"  // 改，域名私钥存放的绝对路径
+      }
+    },
+    // Hysteria协议（结束，如果您不用此协议，从这行一直删到开始-协议7为止）
+
+    // Hysteria2协议（开始-协议8）
+    {
+      "type": "hysteria2",
+      "tag": "Hysteria2",  // 可改，给节点一个备注
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "up_mbps": 300,  // 改，期望中客户端的下载速度，单位为mbps
+      "down_mbps": 50,  // 改，期望中客户端的上传速度，单位为mbps
+      "obfs": {
+        "type": "salamander",  // 当前版本此字段不可少，勿删
+        "password": "obfs密码"  // 改，混淆密码,可使用openssl rand -hex 20生成
+      },
+      "users": [
+        {
+          "name": "singbox",  // 可改，多用户配置时用作区分
+          "password": "auth_str密码"  // 改，auth_str密码，可使用 sing-box generate rand --base64 16 生成
+        }
+      ],
+      "ignore_client_bandwidth": false,  // 可改，除非您清楚此项改动是作用于什么，否则保持默认即可。（命令客户端使用 BBR 流量控制算法而不是 Hysteria CC。与 up_mbps 和 down_mbps 冲突。）
+      "masquerade": "",  // 可改，除非您清楚此项改动是作用于什么，否则保持默认即可。
+      "tls": {
+        "enabled": true,
+        "alpn": [ "h3" ],  // 可改，但默认就好，除非你懂这是干什么的
+        "certificate_path": "/域名/证书/存放/绝对路径",  // 改，域名证书存放的绝对路径
+        "key_path": "/域名/私钥/存放/绝对路径"  // 改，域名私钥存放的绝对路径
+      }
+    },
+    // Hysteria2协议（结束，如果您不用此协议，从这行一直删到开始-协议8为止）
+
+    // TUIC协议（开始-协议9）
+    {
+      "type": "tuic",
+      "tag": "Tuic",  // 可改，给节点一个备注
+      "listen": "::",  // 可改，未限制，监听所有来访IP，来访IP只要有正确的配置，即可连接
+      "listen_port": 123,  // 改，节点的端口
+      "sniff": true,  // 开启嗅探
+      "sniff_override_destination": false,  // 无特殊需求，此项可不开，具体请看Sing-Box官方文档
+      "users": [
+        {
+          "name": "singbox",  // 可改，多用户配置时用作区分
+          "uuid": "UUID",  // 改，节点UUID，使用 sing-box generate uuid 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate uuid）
+          "password": "密码"  // 改，节点密码，可以使用 sing-box generate uuid 生成（无法使用请补全sing-box所在的绝对路径 /绝对/路径/sing-box generate uuid）
+        }
+      ],
+      "congestion_control": "bbr",  // QUIC 流量控制算法，可选值: cubic, new_reno, bbr
+      "tls": {
+        "enabled": true,
+        "alpn": [ "h3" ],  // 可改，但默认就好，除非你懂这是干什么的
+        "certificate_path": "/域名/证书/存放/绝对路径",  // 改，域名证书存放的绝对路径
+        "key_path": "/域名/私钥/存放/绝对路径"  // 改，域名私钥存放的绝对路径
+      }
+    }
+    // TUIC协议（结束，如果您不用此协议，从这行一直删到开始-协议9为止）
+  ],
+
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    // 附赠 WARP-free，如想更改，具体请参考Sing-Box官方文档
+    {
+      "type": "wireguard",
+      "tag": "wireguard-out",
+      "server": "engage.cloudflareclient.com",
+      "server_port": 2408,
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:812a:4929:7d2a:af62:351c/128"
+      ],
+      "private_key": "gBthRjevHDGyV0KvYwYE52NIPy29sSrVr6rcQtYNcXA=",
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved":[6,146,6]
+    }
+  ],
+
+  "route": {
+    "geosite": {
+      "download_url": "https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
+      "download_detour": "direct"
+      },
+    "geoip": {
+      "download_url": "https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
+      "download_detour": "direct"
+      },
+    "rules": [
+      {
+        // 使用 WARP解锁Netflix和OpenAI，还需解锁什么，请参考V2ray官方域名库，自行按照格式添加（https://github.com/v2fly/domain-list-community/tree/master/data）
+        "geosite": [
+          "netflix",
+          "openai"
+        ],
+        "outbound": "wireguard-out"  // 使用warp节点通讯
+      },
+      {
+        "geosite": "cn",  // 中国大陆的域名
+        "outbound": "wireguard-out"  // 使用warp节点通讯
+      },
+      {
+        "geoip": "cn",  // 中国大陆的IP
+        "outbound": "wireguard-out"  // 使用warp节点通讯
+      }
+    ]
+  }
+}

@@ -1,0 +1,656 @@
+{
+  // 日志，只显示错误信息
+  "log": {
+    "disabled": false,
+    "level": "warn",
+    "timestamp": true
+  },
+  // clash api，为Sing-Box显示分组
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "store_selected": true
+    }
+  },
+  // DNS设置
+  "dns": {
+    // DNS服务器设置（和Clash中的DNS设置类似）
+    "servers": [
+      {
+        // 非CN域名使用的DNS
+        "address": "tls://8.8.4.4",
+        "detour": "✈️ Proxy",
+        "tag": "dns-remote"
+      },
+      {
+        // CN域名使用的DNS
+        "address": "https://120.53.53.53/dns-query",
+        "detour": "direct",
+        "tag": "dns-direct"
+      },
+      {
+        // DNS解析返回无错误，相当于黑洞功能
+        "address": "rcode://success",
+        "tag": "dns-block"
+      }
+    ],
+    // DNS规则设置
+    "rules": [
+      {
+        // 广告域名DNS解析被黑洞
+        "geosite": [
+          "category-ads-all"
+        ],
+        "disable_cache": true,
+        "server": "dns-block"
+      },
+      {
+        // 追踪域名DNS解析被黑洞
+        "domain_suffix": [
+          "appcenter.ms",
+          "app-measurement.com",
+          "firebase.io",
+          "crashlytics.com",
+          "google-analytics.com"
+        ],
+        "disable_cache": true,
+        "server": "dns-block"
+      },
+      {
+        // 使用非CN DNS解析
+        "domain_suffix": [
+          "googleapis.cn"
+        ],
+        "server": "dns-remote"
+      },
+      {
+        // CN域名使用CN DNS解析
+        "geosite": [
+          "private",
+          "cn"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        // 未匹配的域名使用非CN DNS解析
+        "outbound": [
+          "any"
+        ],
+        "server": "dns-remote"
+      }
+    ],
+    "final": "dns-remote",
+    "fakeip": {  // 启用fake-ip
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"  // 如果本地环境未启用IPV6，请删除此行
+    }
+  },
+  // 入站启用tun
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "sing-tun",
+      "interface_name": "tun0",
+      "stack": "mixed",
+      "inet4_address": "172.16.0.0/16",
+      "inet6_address": "fdfd:9527::1/32",  // 如果本地环境未启用IPV6，请删除此行
+      "auto_route": true,
+      "sniff": true  // 启用sniff探测
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "✈️ Proxy",
+      "outbounds": [
+        "VLESS-Vision",
+        "VLESS-Padding",
+        "Trojan-WS-Padding",
+        "VLESS-CDN-Padding",
+        "Shadowsocks-Padding",
+        "ShadowTLS-Padding",
+        "Hysteria",
+        "Hysteria2",
+        "Tuic",
+        "WARP-应急"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "📱 Telegram",
+      "outbounds": [
+        "VLESS-Vision",
+        "VLESS-Padding",
+        "Trojan-WS-Padding",
+        "VLESS-CDN-Padding",
+        "Shadowsocks-Padding",
+        "ShadowTLS-Padding",
+        "Hysteria",
+        "Hysteria2",
+        "Tuic",
+        "WARP-应急"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🖥 YouTube",
+      "outbounds": [
+        "VLESS-Vision",
+        "VLESS-Padding",
+        "Trojan-WS-Padding",
+        "VLESS-CDN-Padding",
+        "Shadowsocks-Padding",
+        "ShadowTLS-Padding",
+        "Hysteria",
+        "Hysteria2",
+        "Tuic",
+        "WARP-应急"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🎥 NETFLIX",
+      "outbounds": [
+        "VLESS-Vision",
+        "VLESS-Padding",
+        "Trojan-WS-Padding",
+        "VLESS-CDN-Padding",
+        "Shadowsocks-Padding",
+        "ShadowTLS-Padding",
+        "Hysteria",
+        "Hysteria2",
+        "Tuic",
+        "WARP-应急"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🤖 OpenAI",
+      "outbounds": [
+        "VLESS-Vision",
+        "VLESS-Padding",
+        "Trojan-WS-Padding",
+        "VLESS-CDN-Padding",
+        "Shadowsocks-Padding",
+        "ShadowTLS-Padding",
+        "Hysteria",
+        "Hysteria2",
+        "Tuic",
+        "WARP-应急"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🍎 Apple",
+      "outbounds": [
+        "VLESS-Vision",
+        "VLESS-Padding",
+        "Trojan-WS-Padding",
+        "VLESS-CDN-Padding",
+        "Shadowsocks-Padding",
+        "ShadowTLS-Padding",
+        "Hysteria",
+        "Hysteria2",
+        "Tuic",
+        "WARP-应急",
+        "direct"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "📢 Google",
+      "outbounds": [
+        "VLESS-Vision",
+        "VLESS-Padding",
+        "Trojan-WS-Padding",
+        "VLESS-CDN-Padding",
+        "Shadowsocks-Padding",
+        "ShadowTLS-Padding",
+        "Hysteria",
+        "Hysteria2",
+        "Tuic",
+        "WARP-应急"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "Ⓜ️ Microsoft",
+      "outbounds": [
+        "VLESS-Vision",
+        "VLESS-Padding",
+        "Trojan-WS-Padding",
+        "VLESS-CDN-Padding",
+        "Shadowsocks-Padding",
+        "ShadowTLS-Padding",
+        "Hysteria",
+        "Hysteria2",
+        "Tuic",
+        "WARP-应急",
+        "direct"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🎯 direct",
+      "outbounds": [
+        "direct",
+        "block",
+        "✈️ Proxy"
+      ],
+      "default": "direct"
+    },
+    {
+      "type": "selector",
+      "tag": "🛑 block",
+      "outbounds": [
+        "block",
+        "direct",
+        "✈️ Proxy"
+      ],
+      "default": "block"
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns",
+      "type": "dns"
+    },
+    // VLESS - Reality + Vision（开始-协议1）
+    {
+      "type": "vless",
+      "tag": "VLESS-Vision",
+      "server": "123.123.123.123",  // 改，VPS的IP
+      "server_port": 123,  // 改，端口，同Server端配置
+      "uuid": "UUID",  // 改，UUID，同Server端配置
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "域名",  // 改，同Server端配置
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "公钥",  // 改，公钥，同Server端配置
+          "short_id": "短ID"  // 改，短ID，同Server端配置
+        }
+      }
+    },
+    // VLESS - Reality + Vision（结束，如果您不用此协议，从这行一直删到开始-协议1为止）
+
+    // VLESS - Reality + Padding（开始-协议2) (padding为Sing-Box官方推出的填充功能，类似xray的vision，需要配合多路复用一同启用，适合喜欢多路复用用户）
+    {
+      "type": "vless",
+      "tag": "VLESS-Padding",
+      "server": "123.123.123.123",  // 改，VPS的IP
+      "server_port": 123,  // 改，端口，同Server端配置
+      "uuid": "UUID",  // 改，UUID，同Server端配置
+      "flow": "",  // 注意，启用Padding，流控需要留空
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "server_name": "域名",  // 改，同Server端配置
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "公钥",  // 改，公钥，同Server端配置
+          "short_id": "短ID"  // 改，短ID，同Server端配置
+        }
+      },
+      "multiplex": {
+        "enabled": true,
+        "protocol": "h2mux",
+        "max_connections": 16,
+        "padding": true
+      }
+    },
+    // VLESS - Reality + Padding（结束，如果您不用此协议，从这行一直删到开始-协议2为止）
+
+    // Trojan + TLS + Padding（开始-协议3）
+    {
+      "type":"trojan",
+      "tag":"Trojan-TLS+Padding",  // 改，VPS的IP
+      "server": "123.123.123.123",  // 改，VPS的IP
+      "server_port": 123,  // 改，端口，同Server端配置
+      "password": "password",  // 改，password，同Server端配置
+      "tls": {
+        "enabled":true,
+        "server_name":"域名",  // 改，同Server端配置
+        "utls": {
+          "enabled":true,
+          "fingerprint":"chrome"
+        }
+      },
+      "multiplex": {
+        "enabled":true,
+        "protocol":"h2mux",
+        "max_connections": 16,
+        "padding":true
+      }
+    },
+    // Trojan + TLS + Padding（结束，如果您不用此协议，从这行一直删到开始-协议3为止）
+
+    // VLESS + WS + TLS + CDN + Padding（开始-协议4）
+    {
+      "type":"vless",
+      "tag":"VLESS-CDN-Padding",
+      "server":"域名",  // 任意Cloudflare的CDN IP或者域名
+      "server_port":443,  // 改，端口
+      "uuid":"UUID",  // 改，UUID
+      "flow": "",  // 注意，启用Padding，流控需要留空
+      "tls": {
+        "enabled":true,
+        "server_name":"域名",  // 已经解析好，套了CF CDN，自己的域名
+        "utls": {
+          "enabled":true,
+          "fingerprint":"chrome"
+        }
+      },
+      "transport": {
+        "type":"ws",
+        "path":"路径",  // 改，路径
+        "headers": {
+          "Host": "域名"  // 已经解析好，套了CF CDN，自己的域名
+        },
+        "max_early_data":2408,
+        "early_data_header_name":"Sec-WebSocket-Protocol"
+      },
+      "multiplex": {
+        "enabled":true,
+        "protocol":"h2mux",
+        "max_streams":16,
+        "padding":true
+      }
+    },
+    // VLESS + WS + TLS + CDN + Padding（结束，如果您不用此协议，从这行一直删到开始-协议4为止）
+
+    // Shadowsocks + Padding（开始-协议5）
+    {
+      "type": "shadowsocks",
+      "tag": "Shadowsocks-Padding",
+      "server": "123.123.123.123",  // 改，VPS IP
+      "server_port": 123,  // 改，同Server端配置
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "password",  // 改，同Server端配置
+      "multiplex": {
+        "enabled": true,
+        "protocol": "h2mux",
+        "max_connections": 16,
+        "padding": true
+      }
+    },
+    // Shadowsocks + Padding（结束，如果您不用此协议，从这行一直删到开始-协议5为止）
+
+    // Shadowsocks + ShadowTLS + Padding（开始-协议6）
+    {
+      "type": "shadowsocks",
+      "tag": "ShadowTLS-Padding",
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "password",  // 改，同Server端配置
+      "detour": "shadowtls-out",  // 注意，需要与与下面shadowtls节点的tag相同
+      "udp_over_tcp": {
+        "enabled": true,
+        "version": 2
+      },
+      "multiplex": {
+        "enabled": true,
+        "protocol": "h2mux",
+        "max_connections": 16,
+        "padding": true
+      }
+    },
+    {
+      "type": "shadowtls",
+      "tag": "shadowtls-out",
+      "server": "123.123.123.123",  // 改，VPS的IP
+      "server_port": 123,  // 改，同Server端配置
+      "version": 3,
+      "password": "ShadowTLS的密码",  // 改，同Server端配置
+      "tls": {
+        "enabled": true,
+        "server_name": "域名",  // 改，同Server端配置
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    // Shadowsocks + ShadowTLS + Padding（结束，如果您不用此协议，从这行一直删到开始-协议6为止）
+
+    // Hysteria协议（开始-协议7）
+    {
+      "type": "hysteria",
+      "tag": "Hysteria",
+      "server": "123.123.123.123",  // 填自己VPS的IP
+      "server_port": 123,  // 填自己VPS的端口
+      "up_mbps": 50,  // 改，同Server端配置
+      "down_mbps": 300,  // 改，同Server端配置
+      "obfs": "obfs密码",  // 改，同Server端配置
+      "auth_str": "auth_str密码",  // 改，同Server端配置
+      "tls": {
+        "enabled": true,
+        "server_name": "已经解析好的域名",  // 改，同Server端配置
+        "alpn": [ "h3" ]
+      }
+    },
+    // Hysteria协议（结束，如果您不用此协议，从这行一直删到开始-协议7为止）
+
+    // Hysteria2协议（开始-协议8）
+    {
+      "type": "hysteria2",
+      "tag": "Hysteria2",
+      "server": "123.123.123.123",  // 改，同Server端配置
+      "server_port": 123,  // 改，同Server端配置
+      "up_mbps": 50,  // 改，同Server端配置
+      "down_mbps": 300,  // 改，同Server端配置
+      "obfs": {
+        "type": "salamander",
+        "password": "password"  // 改，同Server端配置
+      },
+      "password": "password",  // 改，同Server端的auth_str密码
+      "tls": {
+        "enabled": true,
+        "server_name": "域名",  // 改，同Server端配置
+        "alpn": [ "h3" ]
+      }
+    },
+    // Hysteria2协议（结束，如果您不用此协议，从这行一直删到开始-协议8为止）
+
+    // TUIC协议（开始-协议9）
+    {
+      "type": "tuic",
+      "tag": "Tuic",
+      "server": "123.123.123.123",  // 改，同Server端配置
+      "server_port": 123,  // 改，同Server端配置
+      "uuid": "uuid",  // 改，同Server端配置
+      "password": "password",  // 改，同Server端配置
+      "congestion_control": "bbr",  // QUIC 流量控制算法，可选值: cubic, new_reno, bbr
+      "udp_relay_mode": "native",  // UDP 包中继模式，可选 native / quic
+      "zero_rtt_handshake": false,
+      "heartbeat": "10s",
+      "tls": {
+        "enabled": true,
+        "server_name": "域名",  // 改，同Server端配置
+        "alpn": [ "h3" ]
+      }
+    },
+    // TUIC协议（结束，如果您不用此协议，从这行一直删到开始-协议9为止）
+
+    // WARP-free，应急使用
+    {
+      "type": "wireguard",
+      "tag": "WARP-应急",
+      "server": "162.159.195.100",
+      "server_port": 4500,
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:83c7:b31f:5858:b3a8:c6b1/128"
+      ],
+      "private_key": "mPZo+V9qlrMGCZ7+E6z2NI6NOV34PD++TpAR09PtCWI=",
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved":[26,21,228]
+    }
+  ],
+  "route": {
+    "geosite": {
+      "download_url": "https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
+      "download_detour": "✈️ Proxy"
+      },
+    "geoip": {
+      "download_url": "https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
+      "download_detour": "✈️ Proxy"
+      },
+    "rules": [
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": [53],
+            "protocol": "dns"
+          }
+        ],
+        "outbound": "dns"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "network": ["udp"],
+            "port": [443]
+          }
+        ],
+        "outbound": "block"
+      },
+      {
+        "geosite": [
+          "category-ads-all"
+        ],
+        "outbound": "block"
+      },
+      {
+        "domain_suffix": [
+          "appcenter.ms",
+          "app-measurement.com",
+          "firebase.io",
+          "crashlytics.com",
+          "google-analytics.com"
+        ],
+        "outbound": "block"
+      },
+      {
+        "domain_suffix": [
+          "googleapis.cn"
+        ],
+        "outbound": "✈️ Proxy"
+      },
+      {
+        "geosite": [
+          "category-ads-all"
+        ],
+        "outbound": "🛑 block"
+      },
+      {
+        "geosite": [
+          "youtube"
+        ],
+        "outbound": "🖥 YouTube"
+      },
+      {
+        "geosite": [
+          "netflix"
+        ],
+        "outbound": "🎥 NETFLIX"
+      },
+      {
+        "geosite": [
+          "openai@ads"
+        ],
+        "outbound": "block"
+      },
+      {
+        "geosite": [
+          "openai"
+        ],
+        "outbound": "🤖 OpenAI"
+      },
+      {
+        "geosite": [
+          "apple"
+        ],
+        "outbound": "🍎 Apple"
+      },
+      {
+        "geosite": [
+          "google"
+        ],
+        "outbound": "📢 Google"
+      },
+      {
+        "geosite": [
+          "microsoft"
+        ],
+        "outbound": "Ⓜ️ Microsoft"
+      },
+      {
+        "geosite": [
+          "geolocation-!cn",
+          "tld-!cn"
+        ],
+        "outbound": "✈️ Proxy"
+      },
+      {
+        "geosite": [
+          "private",
+          "cn"
+        ],
+        "outbound": "🎯 direct"
+      },
+      {
+        "geoip": [
+          "telegram"
+        ],
+        "outbound": "📱 Telegram"
+      },
+      {
+        "geoip": [
+          "netflix"
+        ],
+        "outbound": "🎥 NETFLIX"
+      },
+      {
+        "geoip": [
+          "google"
+        ],
+        "outbound": "📢 Google"
+      },
+      {
+        "geoip": [
+          "apple"
+        ],
+        "outbound": "🍎 Apple"
+      },
+      {
+        "geoip": [
+          "private",
+          "cn"
+        ],
+        "outbound": "🎯 direct"
+      }
+    ],
+    "final": "✈️ Proxy"
+  }
+}
