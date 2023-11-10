@@ -426,11 +426,11 @@
   ],
   "route": {
     "geosite": {
-      "download_url": "https://github.com/yangchuansheng/sing-geosite/releases/latest/download/geosite.db",
+      "download_url": "https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
       "download_detour": "✈️ Proxy"
       },
     "geoip": {
-      "download_url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/geoip.db",
+      "download_url": "https://github.com/soffchen/sing-geoip/releases/latest/download/geoip.db",
       "download_detour": "✈️ Proxy"
       },
     "rules": [
