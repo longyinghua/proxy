@@ -57,7 +57,7 @@
           "category-ads-all"
         ],
         "disable_cache": true,
-        "server": "dns-block"
+        "server": "dns_block"
       },
       {
         "process_name": [
