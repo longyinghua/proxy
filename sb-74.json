@@ -91,8 +91,7 @@
         "rn-dc2 vmess ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 h2-reality-vision"
+        "rn-dc2 tuic"
       ]
     },
     {
@@ -102,8 +101,7 @@
         "rn-dc2 vmess ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 h2-reality-vision"
+        "rn-dc2 tuic"
       ]
     },
     {
@@ -113,8 +111,7 @@
         "rn-dc2 vmess ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 h2-reality-vision"
+        "rn-dc2 tuic"
       ]
     },
     {
@@ -124,8 +121,7 @@
         "rn-dc2 vmess ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 h2-reality-vision"
+        "rn-dc2 tuic"
       ]
     },
     {
@@ -135,8 +131,7 @@
         "rn-dc2 vmess ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 h2-reality-vision"
+        "rn-dc2 tuic"
       ]
     },
     {
@@ -147,7 +142,6 @@
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
-        "rn-dc2 h2-reality-vision",
         "direct"
       ]
     },
@@ -158,8 +152,7 @@
         "rn-dc2 vmess ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
-        "rn-dc2 h2-reality-vision"
+        "rn-dc2 tuic"
       ]
     },
     {
@@ -170,7 +163,6 @@
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
-        "rn-dc2 h2-reality-vision",
         "direct"
       ]
     },
@@ -290,36 +282,6 @@
         },
         "max_early_data": 2048,
         "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "multiplex": {
-        "enabled": true,
-        "protocol": "h2mux",
-        "max_streams": 16,
-        "padding": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "rn-dc2 h2-reality-vision",
-      "server": "74.48.19.200",
-      "server_port": 20006,
-      "uuid": "0b44bc32-c7a6-4437-b2f9-947330ab84f4",
-      "tls": {
-        "enabled": true,
-        "server_name": "addons.mozilla.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "-DG2GKoP-X1PX6eAXi_Y54dPi-Wo4DQF1tS-LMembnk",
-          "short_id": ""
-        }
-      },
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http"
       },
       "multiplex": {
         "enabled": true,
