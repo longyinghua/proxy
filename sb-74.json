@@ -89,7 +89,6 @@
       "tag": "✈️ Proxy",
       "outbounds": [
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -101,7 +100,6 @@
       "tag": "📱 Telegram",
       "outbounds": [
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -113,7 +111,6 @@
       "tag": "🖥 YouTube",
       "outbounds": [
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -125,7 +122,6 @@
       "tag": "🎥 NETFLIX",
       "outbounds": [
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -137,7 +133,6 @@
       "tag": "🤖 OpenAI",
       "outbounds": [
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -149,7 +144,6 @@
       "tag": "🍎 Apple",
       "outbounds": [
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -162,7 +156,6 @@
       "tag": "📢 Google",
       "outbounds": [
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -174,7 +167,6 @@
       "tag": "Ⓜ️ Microsoft",
       "outbounds": [
         "rn-dc2 vmess ws",
-        "rn-dc2 vless ws",
         "rn-dc2 xtls-reality",
         "rn-dc2 hysteria2",
         "rn-dc2 tuic",
@@ -295,36 +287,6 @@
         "path": "/0b44bc32-c7a6-4437-b2f9-947330ab84f4-vmess",
         "headers": {
           "Host": "proxy-rn-dc2-ws.okya.free.hr"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "multiplex": {
-        "enabled": true,
-        "protocol": "h2mux",
-        "max_streams": 16,
-        "padding": true
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "rn-dc2 vless ws",
-      "server": "cfip.okya.free.hr",
-      "server_port": 443,
-      "uuid": "0b44bc32-c7a6-4437-b2f9-947330ab84f4",
-      "tls": {
-        "enabled": true,
-        "server_name": "proxy-rn-dc2-wl.okya.free.hr",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/0b44bc32-c7a6-4437-b2f9-947330ab84f4-vless",
-        "headers": {
-          "Host": "proxy-rn-dc2-wl.okya.free.hr"
         },
         "max_early_data": 2048,
         "early_data_header_name": "Sec-WebSocket-Protocol"
