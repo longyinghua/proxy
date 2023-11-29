@@ -64,8 +64,34 @@ function CF_SPEED_TEST()
     # 延迟140毫秒一下，下载速度30MB/s,
     $CF_DIR/CloudflareST -tp 443 -f $CF_DIR/$CF_IP_FILE -url $URL_SPEED -sl 30 -tl 140 -dn 10
 
+    # ./CloudflareST -tp 443 -f ip.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 
+
 }
 
+function CF_PROXY_IP()
+{
+    txt="txt.zip"
+    zip-dir="cf-ip-zip"
+    download-url="https://zip.baipiao.eu.org"
+
+    rm -f txt.zip && rm -rf cf-ip-zip
+
+    curl -s --location --request GET 'https://zip.baipiao.eu.org/' --header 'User-Agent: Apifox/1.0.0 (https://apifox.com)' --header 'Accept: */*' --header 'Host: zip.baipiao.eu.org' -o txt.zip
+
+    mkdir cf-ip-zip
+
+    unzip txt.zip -d cf-ip-zip
+
+    cd cf-ip-zip
+
+    cat $(ll  |grep 0-80.txt  |awk '{print $9}') >80-cf.txt
+    cat $(ll  |grep 1-443.txt  |awk '{print $9}') >443-cf.txt
+
+
+    # $CF_DIR/CloudflareST -tp 443 -f $PWD/443-cf.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 -o 443-result.csv
+
+    $CF_DIR/CloudflareST -tp 80 -f $PWD/80-cf.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 -o 80-result.csv
+}
 
 
 function DELETE_DNS_RECORD()
@@ -144,6 +170,7 @@ function example()
 
 # CF_INSTALL # 安装优选测试服务
 # CF_GET_IP  # 获取优选IP列表
-CF_SPEED_TEST # 执行优选IP删选的函数
-DELETE_DNS_RECORD # 执行删除dns记录的函数
-ADD_DNS_RECORD # 执行添加dns记录的函数
+CF_PROXY_IP # 执行优选CF的反代IP测试
+# CF_SPEED_TEST # 执行优选IP删选的函数
+# DELETE_DNS_RECORD # 执行删除dns记录的函数
+# ADD_DNS_RECORD # 执行添加dns记录的函数
