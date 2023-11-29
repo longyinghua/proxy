@@ -80,17 +80,17 @@ function CF_PROXY_IP()
 
     mkdir cf-ip-zip
 
-    unzip txt.zip -d cf-ip-zip
+    unzip txt.zip -q -d cf-ip-zip 
 
     cd cf-ip-zip
 
-    cat $(ll  |grep 0-80.txt  |awk '{print $9}') >80-cf.txt
-    cat $(ll  |grep 1-443.txt  |awk '{print $9}') >443-cf.txt
+    cat $(ls -l  |grep 0-80.txt  |awk '{print $9}') >80-cf.txt
+    cat $(ls -l  |grep 1-443.txt  |awk '{print $9}') >443-cf.txt
 
 
-    # $CF_DIR/CloudflareST -tp 443 -f $PWD/443-cf.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 -o 443-result.csv
+    $CF_DIR/CloudflareST -tp 443 -f $PWD/443-cf.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 -o $PWD/443-result.csv
 
-    $CF_DIR/CloudflareST -tp 80 -f $PWD/80-cf.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 -o 80-result.csv
+    # $CF_DIR/CloudflareST -tp 80 -f $PWD/80-cf.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 -o $PWD/80-result.csv
 }
 
 
