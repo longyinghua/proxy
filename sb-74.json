@@ -293,7 +293,7 @@
         "max_streams":16,
         "padding": true
       }
-    }
+    },
     {
       "type": "wireguard",
       "tag": "WARP-应急",
