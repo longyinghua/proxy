@@ -67,9 +67,9 @@
       }
     ],
     "final": "dns-remote",
-    "fakeip": {
+    "fakeip": { 
       "enabled": true,
-      "inet4_range": "198.18.0.0/15"
+      "inet4_range": "198.18.0.0/15",
     }
   },
   "inbounds": [
@@ -80,7 +80,7 @@
       "stack": "mixed",
       "inet4_address": "172.16.0.0/16",
       "auto_route": true,
-      "sniff": true
+      "sniff": true 
     }
   ],
   "outbounds": [
@@ -88,60 +88,72 @@
       "type": "selector",
       "tag": "✈️ Proxy",
       "outbounds": [
-        "rn-dc2 vmess ws",
-        "rn-dc2 xtls-reality",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic"
+        "racknerd-b4de48 vmess ws",
+        "racknerd-b4de48 vless ws",
+        "racknerd-b4de48 xtls-reality",
+        "racknerd-b4de48 hysteria2",
+        "racknerd-b4de48 tuic",
+        "WARP-应急"
       ]
     },
     {
       "type": "selector",
       "tag": "📱 Telegram",
       "outbounds": [
-        "rn-dc2 vmess ws",
-        "rn-dc2 xtls-reality",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic"
+        "racknerd-b4de48 vmess ws",
+        "racknerd-b4de48 vless ws",
+        "racknerd-b4de48 xtls-reality",
+        "racknerd-b4de48 hysteria2",
+        "racknerd-b4de48 tuic",
+        "WARP-应急"
       ]
     },
     {
       "type": "selector",
       "tag": "🖥 YouTube",
       "outbounds": [
-        "rn-dc2 vmess ws",
-        "rn-dc2 xtls-reality",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic"
+        "racknerd-b4de48 vmess ws",
+        "racknerd-b4de48 vless ws",
+        "racknerd-b4de48 xtls-reality",
+        "racknerd-b4de48 hysteria2",
+        "racknerd-b4de48 tuic",
+        "WARP-应急"
       ]
     },
     {
       "type": "selector",
       "tag": "🎥 NETFLIX",
       "outbounds": [
-        "rn-dc2 vmess ws",
-        "rn-dc2 xtls-reality",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic"
+        "racknerd-b4de48 vmess ws",
+        "racknerd-b4de48 vless ws",
+        "racknerd-b4de48 xtls-reality",
+        "racknerd-b4de48 hysteria2",
+        "racknerd-b4de48 tuic",
+        "WARP-应急"
       ]
     },
     {
       "type": "selector",
       "tag": "🤖 OpenAI",
       "outbounds": [
-        "rn-dc2 vmess ws",
-        "rn-dc2 xtls-reality",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic"
+        "racknerd-b4de48 vmess ws",
+        "racknerd-b4de48 vless ws",
+        "racknerd-b4de48 xtls-reality",
+        "racknerd-b4de48 hysteria2",
+        "racknerd-b4de48 tuic",
+        "WARP-应急"
       ]
     },
     {
       "type": "selector",
       "tag": "🍎 Apple",
       "outbounds": [
-        "rn-dc2 vmess ws",
-        "rn-dc2 xtls-reality",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
+        "racknerd-b4de48 vmess ws",
+        "racknerd-b4de48 vless ws",
+        "racknerd-b4de48 xtls-reality",
+        "racknerd-b4de48 hysteria2",
+        "racknerd-b4de48 tuic",
+        "WARP-应急",
         "direct"
       ]
     },
@@ -149,20 +161,24 @@
       "type": "selector",
       "tag": "📢 Google",
       "outbounds": [
-        "rn-dc2 vmess ws",
-        "rn-dc2 xtls-reality",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic"
+        "racknerd-b4de48 vmess ws",
+        "racknerd-b4de48 vless ws",
+        "racknerd-b4de48 xtls-reality",
+        "racknerd-b4de48 hysteria2",
+        "racknerd-b4de48 tuic",
+        "WARP-应急"
       ]
     },
     {
       "type": "selector",
       "tag": "Ⓜ️ Microsoft",
       "outbounds": [
-        "rn-dc2 vmess ws",
-        "rn-dc2 xtls-reality",
-        "rn-dc2 hysteria2",
-        "rn-dc2 tuic",
+        "racknerd-b4de48 vmess ws",
+        "racknerd-b4de48 vless ws",
+        "racknerd-b4de48 xtls-reality",
+        "racknerd-b4de48 hysteria2",
+        "racknerd-b4de48 tuic",
+        "WARP-应急",
         "direct"
       ]
     },
@@ -200,24 +216,24 @@
     },
     {
       "type": "vless",
-      "tag": "rn-dc2 xtls-reality",
-      "server": "74.48.19.200",
-      "server_port": 20001,
-      "uuid": "0b44bc32-c7a6-4437-b2f9-947330ab84f4",
-      "flow": "",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "server_name": "addons.mozilla.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "-DG2GKoP-X1PX6eAXi_Y54dPi-Wo4DQF1tS-LMembnk",
-          "short_id": ""
-        }
+      "tag": "racknerd-b4de48 xtls-reality",
+      "server":"74.48.19.200",
+      "server_port":20001,
+      "uuid":"60e83654-a7e8-4e8a-923b-26ba029da490",
+      "flow":"",
+      "packet_encoding":"xudp",
+      "tls":{
+          "enabled":true,
+          "server_name":"addons.mozilla.org",
+          "utls":{
+              "enabled":true,
+              "fingerprint":"chrome"
+          },
+          "reality":{
+              "enabled":true,
+              "public_key":"zy9D2DLA0Exbtc54WawwMkeF6SLI9IGyOWDhd_xPRBU",
+              "short_id":""
+          }
       },
       "multiplex": {
         "enabled": true,
@@ -229,66 +245,110 @@
     },
     {
       "type": "hysteria2",
-      "tag": "rn-dc2 hysteria2",
+      "tag": "racknerd-b4de48 hysteria2",
       "server": "74.48.19.200",
       "server_port": 20002,
       "up_mbps": 200,
       "down_mbps": 1000,
       "obfs": {
         "type": "salamander",
-        "password": "0b44bc32-c7a6-4437-b2f9-947330ab84f4"
+        "password": "60e83654-a7e8-4e8a-923b-26ba029da490"
       },
-      "password": "0b44bc32-c7a6-4437-b2f9-947330ab84f4",
+      "password": "60e83654-a7e8-4e8a-923b-26ba029da490",
       "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "",
-        "alpn": [
-          "h3"
-        ]
+          "enabled": true,
+          "insecure": true,
+          "server_name": "",
+          "alpn": [ "h3" ]
       }
     },
     {
       "type": "tuic",
-      "tag": "rn-dc2 tuic",
+      "tag": "racknerd-b4de48 tuic",
       "server": "74.48.19.200",
       "server_port": 20003,
-      "uuid": "0b44bc32-c7a6-4437-b2f9-947330ab84f4",
-      "password": "0b44bc32-c7a6-4437-b2f9-947330ab84f4",
+      "uuid": "60e83654-a7e8-4e8a-923b-26ba029da490",
+      "password": "60e83654-a7e8-4e8a-923b-26ba029da490",
       "congestion_control": "bbr",
       "udp_relay_mode": "native",
       "zero_rtt_handshake": false,
       "heartbeat": "10s",
       "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "",
-        "alpn": [
-          "h3"
-        ]
+          "enabled": true,
+          "insecure": true,
+          "server_name": "",
+          "alpn": [ "h3" ]
       }
     },
     {
       "type": "vmess",
-      "tag": "rn-dc2 vmess ws",
-      "server": "cfip.okya.free.hr",
-      "server_port": 80,
-      "uuid": "0b44bc32-c7a6-4437-b2f9-947330ab84f4",
+      "tag": "racknerd-b4de48 vmess ws",
+      "server":"cfip.okya.free.hr",
+      "server_port":80,
+      "uuid":"60e83654-a7e8-4e8a-923b-26ba029da490",
       "transport": {
-        "type": "ws",
-        "path": "/0b44bc32-c7a6-4437-b2f9-947330ab84f4-vmess",
+        "type":"ws",
+        "path":"/60e83654-a7e8-4e8a-923b-26ba029da490-vmess",
         "headers": {
-          "Host": "proxy-rn-dc2-ws.okya.free.hr"
+          "Host": "sb-rn-dc2-74-vm.okya.free.hr"
         },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
+        "max_early_data":2048,
+        "early_data_header_name":"Sec-WebSocket-Protocol"
       },
       "multiplex": {
-        "enabled": true,
-        "protocol": "h2mux",
-        "max_streams": 16,
+        "enabled":true,
+        "protocol":"h2mux",
+        "max_streams":16,
         "padding": true
       }
+    },
+    {
+      "type": "vless",
+      "tag": "racknerd-b4de48 vless ws",
+      "server":"cfip.okya.free.hr",
+      "server_port":443,
+      "uuid":"60e83654-a7e8-4e8a-923b-26ba029da490",
+      "tls": {
+        "enabled":true,
+        "server_name":"sb-rn-dc2-74-vl.okya.free.hr",
+        "utls": {
+          "enabled":true,
+          "fingerprint":"chrome"
+        }
+      },
+      "transport": {
+        "type":"ws",
+        "path":"/60e83654-a7e8-4e8a-923b-26ba029da490-vless",
+        "headers": {
+          "Host": "sb-rn-dc2-74-vl.okya.free.hr"
+        },
+        "max_early_data":2048,
+        "early_data_header_name":"Sec-WebSocket-Protocol"
+      },
+      "multiplex": {
+        "enabled":true,
+        "protocol":"h2mux",
+        "max_streams":16,
+        "padding": true
+      }
+    },
+    // WARP-free，应急使用
+    {
+      "type": "wireguard",
+      "tag": "WARP-应急",
+      "server": "162.159.195.100",
+      "server_port": 4500,
+      "local_address": [
+        "172.16.0.2/32",
+        "2606:4700:110:83c7:b31f:5858:b3a8:c6b1/128"
+      ],
+      "private_key": "mPZo+V9qlrMGCZ7+E6z2NI6NOV34PD++TpAR09PtCWI=",
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": [
+        26,
+        21,
+        228
+      ]
     }
   ],
   "route": {
