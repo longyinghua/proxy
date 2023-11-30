@@ -282,7 +282,7 @@
         "type":"ws",
         "path":"/60e83654-a7e8-4e8a-923b-26ba029da490-vmess",
         "headers": {
-          "Host": "sb-rn-dc2-74-74-vm.okya.free.hr"
+          "Host": "sb-rn-dc2-74-vm.okya.free.hr"
         },
         "max_early_data":2048,
         "early_data_header_name":"Sec-WebSocket-Protocol"
@@ -293,37 +293,7 @@
         "max_streams":16,
         "padding": true
       }
-    },
-    {
-      "type": "vless",
-      "tag": "rn-dc2-74 vless ws",
-      "server":"cfip.okya.free.hr",
-      "server_port":443,
-      "uuid":"60e83654-a7e8-4e8a-923b-26ba029da490",
-      "tls": {
-        "enabled":true,
-        "server_name":"sb-rn-dc2-74-74-vl.okya.free.hr",
-        "utls": {
-          "enabled":true,
-          "fingerprint":"chrome"
-        }
-      },
-      "transport": {
-        "type":"ws",
-        "path":"/60e83654-a7e8-4e8a-923b-26ba029da490-vless",
-        "headers": {
-          "Host": "sb-rn-dc2-74-74-vl.okya.free.hr"
-        },
-        "max_early_data":2048,
-        "early_data_header_name":"Sec-WebSocket-Protocol"
-      },
-      "multiplex": {
-        "enabled":true,
-        "protocol":"h2mux",
-        "max_streams":16,
-        "padding": true
-      }
-    },
+    }
     {
       "type": "wireguard",
       "tag": "WARP-应急",
