@@ -71,10 +71,6 @@ function CF_SPEED_TEST()
 
 function CF_PROXY_IP()
 {
-    txt="txt.zip"
-    zip-dir="cf-ip-zip"
-    download-url="https://zip.baipiao.eu.org"
-
     rm -f txt.zip && rm -rf cf-ip-zip
 
     curl -s --location --request GET 'https://zip.baipiao.eu.org/' --header 'User-Agent: Apifox/1.0.0 (https://apifox.com)' --header 'Accept: */*' --header 'Host: zip.baipiao.eu.org' -o txt.zip
@@ -85,8 +81,10 @@ function CF_PROXY_IP()
 
     cd cf-ip-zip
 
-    cat $(ls -l  |grep 0-80.txt  |awk '{print $9}') >80-cf.txt
-    cat $(ls -l  |grep 1-443.txt  |awk '{print $9}') >443-cf.txt
+    cat $(ls -l  |grep 0-80.txt  |awk '{print $9}') >${CF_DIR}/80-cf.txt
+    cat $(ls -l  |grep 1-443.txt  |awk '{print $9}') >${CF_DIR}/443-cf.txt
+
+    cd ${CF_DIR}
 
 
     $CF_DIR/CloudflareST -tp 443 -f $PWD/443-cf.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 -o $PWD/443-result.csv
