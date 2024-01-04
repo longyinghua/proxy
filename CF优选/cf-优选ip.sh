@@ -68,7 +68,7 @@ function CF_SPEED_TEST()
     # ./CloudflareST -tp 443 -f ip.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10  # 根据ip.txt文件进行测试
     
 
-    # ./CloudflareST -ip 20.210.224.0/24  -allip -n 500 -tp 443 -url https://url-test.6565.eu.org/test  -sl 30 -tl 100 -dn 10  # 命令行根据ip段进行测试
+    # ./CloudflareST -ip 104.16.0.0/24  -allip -n 500 -tp 443 -url https://url-test.6565.eu.org/test  -sl 30 -tl 100 -dn 10  # 命令行根据ip段进行测试
 
 }
 
