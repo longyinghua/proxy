@@ -80,7 +80,7 @@ function CF_PROXY_IP()
 
     mkdir cf-ip-zip
 
-    unzip txt.zip -q -d cf-ip-zip 
+    unzip -q txt.zip -d cf-ip-zip 
 
     cd cf-ip-zip
 
