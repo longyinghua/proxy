@@ -65,7 +65,10 @@ function CF_SPEED_TEST()
     # 延迟140毫秒一下，下载速度30MB/s,
     $CF_DIR/CloudflareST -tp 443 -f $CF_DIR/$CF_IP_FILE -url $URL_SPEED -sl 30 -tl 140 -dn 10
 
-    # ./CloudflareST -tp 443 -f ip.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10 
+    # ./CloudflareST -tp 443 -f ip.txt -url https://url-test.6565.eu.org/test -sl 30 -tl 140 -dn 10  # 根据ip.txt文件进行测试
+    
+
+    # ./CloudflareST -ip 20.210.224.0/24  -allip -n 500 -tp 443 -url https://url-test.6565.eu.org/test  -sl 30 -tl 100 -dn 10  # 命令行根据ip段进行测试
 
 }
 
