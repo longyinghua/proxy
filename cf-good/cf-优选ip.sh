@@ -170,6 +170,8 @@ function example()
 }
 
 function CF_good_cdn(){
+    # 参考项目：https://github.com/cmliu/CloudFlareIPlus
+    # https://github.com/cmliu/ASN2IPv4CIDRs
     ipplushtxt=IPlus.txt
     cd ${CF_DIR} && rm -f $ipplushtxt
     wget https://ghproxy.6565.eu.org/https://raw.githubusercontent.com/longyinghua/proxy/master/cf-good/CFIPlus-new.sh 
