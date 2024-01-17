@@ -179,7 +179,7 @@ function CF_good_cdn(){
     chmod +x CFIPlus-new.sh 
     # bash CFIPlus-new.sh
     bash CFIPlus-new.sh 2096 209242
-    $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 10
+    $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 20   #延时上线140ms，下载速度30MB/s，获取20个
 
     # ./CloudflareST -f ./IPlus.txt -n 500 -tp 2096 -url https://url-test.6565.eu.org/test  -sl 30 -tl 130 -dn 10
 
