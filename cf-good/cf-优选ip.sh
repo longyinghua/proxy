@@ -172,7 +172,7 @@ function example()
 function CF_good_cdn(){
     ipplushtxt=IPlus.txt
     cd ${CF_DIR} && rm -f $ipplushtxt
-    wget https://ghroxy.6565.eu.org/https://raw.githubusercontent.com/longyinghua/proxy/master/cf-good/CFIPlus-new.sh 
+    wget https://ghproxy.6565.eu.org/https://raw.githubusercontent.com/longyinghua/proxy/master/cf-good/CFIPlus-new.sh 
     chmod +x CFIPlus-new.sh 
     # bash CFIPlus-new.sh
     bash CFIPlus-new.sh 2096 AS209242
