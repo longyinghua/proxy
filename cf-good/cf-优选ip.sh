@@ -175,7 +175,7 @@ function CF_good_cdn(){
     wget https://ghproxy.6565.eu.org/https://raw.githubusercontent.com/longyinghua/proxy/master/cf-good/CFIPlus-new.sh 
     chmod +x CFIPlus-new.sh 
     # bash CFIPlus-new.sh
-    bash CFIPlus-new.sh 2096 AS209242
+    bash CFIPlus-new.sh 2096 209242
     $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 10
 
     # ./CloudflareST -f ./IPlus.txt -n 500 -tp 2096 -url https://url-test.6565.eu.org/test  -sl 30 -tl 130 -dn 10
