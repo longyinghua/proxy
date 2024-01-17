@@ -12,7 +12,8 @@ URL_SPEED="https://url-test.6565.eu.org/test"
 IP_RESULT="result.csv"
 
 
-ZONE_ID=444f2e8c1ab64a1d390c0cd347357a12 #查看待操作域名的 ZONE_ID（在域名概要页面右下角可以看到）
+ZONE_ID_6565=444f2e8c1ab64a1d390c0cd347357a12 #查看待操作域名的 ZONE_ID（在域名概要页面右下角可以看到）
+ZONE_ID_9595=088f1d09e380de1abce2f7d97970e109
 CF_API_KEY="在用户信息里面查看Global KEY"
 CF_API_EMAIL="CloudFlare的登录账号"
 
@@ -98,7 +99,7 @@ function CF_PROXY_IP()
 
 function DELETE_DNS_RECORD()
 {
-    curl --location --request GET "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
+    curl --location --request GET "https://api.cloudflare.com/client/v4/zones/${ZONE_ID_6565}/dns_records" \
     --header "X-Auth-Key: ${CF_API_KEY}" \
     --header "X-Auth-Email: ${CF_API_EMAIL}" \
     -s -o ${DNS_RECORDS}
@@ -107,7 +108,7 @@ function DELETE_DNS_RECORD()
     DNS_LIST_DEL=($(cat ${DNS_RECORDS} | jq -r '.result[] | select(.zone_name == "6565.eu.org" and .name == "cfproxy.6565.eu.org") | .id'))
 
     for RECORD_ID in ${DNS_LIST_DEL[@]};do
-        curl --location --request DELETE "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records/${RECORD_ID}" \
+        curl --location --request DELETE "https://api.cloudflare.com/client/v4/zones/${ZONE_ID_6565}/dns_records/${RECORD_ID}" \
         --header "X-Auth-Key: ${CF_API_KEY}" \
         --header "X-Auth-Email: ${CF_API_EMAIL}" 
     done  
@@ -128,7 +129,7 @@ function ADD_DNS_RECORD()
 
     for ip in $IP
     do
-        curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
+        curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID_6565}/dns_records" \
             -H "X-Auth-Email:${CF_API_EMAIL}" \
             -H "X-Auth-Key:${CF_API_KEY}" \
             -H "Content-Type:application/json" \
@@ -183,7 +184,7 @@ function CF_good_cdn(){
     # ./CloudflareST -f ./IPlus.txt -n 500 -tp 2096 -url https://url-test.6565.eu.org/test  -sl 30 -tl 130 -dn 10
 
     # 删除DNS解析记录
-    curl --location --request GET "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
+    curl --location --request GET "https://api.cloudflare.com/client/v4/zones/${ZONE_ID_9595}/dns_records" \
     --header "X-Auth-Key: ${CF_API_KEY}" \
     --header "X-Auth-Email: ${CF_API_EMAIL}" \
     -s -o ${DNS_RECORDS}
@@ -192,7 +193,7 @@ function CF_good_cdn(){
     DNS_LIST_DEL=($(cat ${DNS_RECORDS} | jq -r '.result[] | select(.zone_name == "9595.eu.org" and .name == "goodcf.9595.eu.org") | .id'))
 
     for RECORD_ID in ${DNS_LIST_DEL[@]};do
-        curl --location --request DELETE "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records/${RECORD_ID}" \
+        curl --location --request DELETE "https://api.cloudflare.com/client/v4/zones/${ZONE_ID_9595}/dns_records/${RECORD_ID}" \
         --header "X-Auth-Key: ${CF_API_KEY}" \
         --header "X-Auth-Email: ${CF_API_EMAIL}" 
     done  
@@ -203,7 +204,7 @@ function CF_good_cdn(){
 
     for ip in $IP
     do
-        curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
+        curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID_9595}/dns_records" \
             -H "X-Auth-Email:${CF_API_EMAIL}" \
             -H "X-Auth-Key:${CF_API_KEY}" \
             -H "Content-Type:application/json" \
