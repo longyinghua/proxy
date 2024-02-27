@@ -14,7 +14,7 @@ IP_RESULT="result.csv"
 
 ZONE_ID_6565=444f2e8c1ab64a1d390c0cd347357a12 #查看待操作域名的 ZONE_ID（在域名概要页面右下角可以看到）
 ZONE_ID_9595=088f1d09e380de1abce2f7d97970e109
-CF_API_KEY="e589469887cfa443ac15e322d2166dd0f1efd"
+CF_API_KEY="xxxxxxxxxxxx"
 CF_API_EMAIL="longyinghua126@gmail.com"
 
 DNS_RECORDS=dns_records.json
