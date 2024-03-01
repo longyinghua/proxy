@@ -7,9 +7,13 @@ CF_DIR="/tmp/Cloudflare"
 CF_CDN_IP=(104.16.0)
 
 
-URL_SPEED="https://url-test.6565.eu.org/test"
+#URL_SPEED="https://url-test.6565.eu.org/test"
+URL_SPEED="spurl.api.030101.xyz/100mb"
 
 IP_RESULT="result.csv"
+
+speedurl="https://speed.cloudflare.com/__down?bytes=$((speedtestMB * 1000000))" #官方测速链接
+proxygithub="https://mirror.ghproxy.com/" #反代github加速地址，如果不需要可以将引号内容删除，如需修改请确保/结尾 例如"https://mirror.ghproxy.com/"
 
 
 ZONE_ID_6565=444f2e8c1ab64a1d390c0cd347357a12 #查看待操作域名的 ZONE_ID（在域名概要页面右下角可以看到）
@@ -30,8 +34,21 @@ function CF_INSTALL(){
     # 进入文件夹（后续更新，只需要从这里重复下面的下载、解压命令即可）
     cd ${CF_DIR}
 
+    # 发送 API 请求获取仓库信息（替换 <username> 和 <repo>）
+    latest_version=$(curl -s https://api.github.com/repos/XIU2/CloudflareSpeedTest/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    if [ -z "$latest_version" ]; then
+        latest_version="v2.2.4"
+        echo "下载版本号: $latest_version"
+    else
+        echo "最新版本号: $latest_version"
+    fi
+    # 下载文件到当前目录
+    curl -L -o CloudflareST.tar.gz "${proxygithub}https://github.com/XIU2/CloudflareSpeedTest/releases/download/$latest_version/CloudflareST_linux_amd64.tar.gz"
+
+
     # 下载 CloudflareST 压缩包（自行根据需求替换 URL 中 [版本号] 和 [文件名]）
-    wget -N https://ghproxy.6565.eu.org/https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_linux_amd64.tar.gz
+    #wget -N https://ghproxy.6565.eu.org/https://github.com/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_linux_amd64.tar.gz
+
     # 如果你是在国内服务器上下载，那么请使用下面这几个镜像加速：
     # wget -N https://download.fgit.ml/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_linux_amd64.tar.gz
     # wget -N https://download.fgit.gq/XIU2/CloudflareSpeedTest/releases/download/v2.2.4/CloudflareST_linux_amd64.tar.gz
@@ -39,12 +56,15 @@ function CF_INSTALL(){
     # 如果下载失败的话，尝试删除 -N 参数（如果是为了更新，则记得提前删除旧压缩包 rm CloudflareST_linux_amd64.tar.gz ）
 
     # 解压（不需要删除旧文件，会直接覆盖，自行根据需求替换 文件名）
-    tar -zxf CloudflareST_linux_amd64.tar.gz
+    #tar -zxf CloudflareST_linux_amd64.tar.gz
+
+    tar -xf CloudflareST.tar.gz
 
     # 赋予执行权限
     chmod +x CloudflareST
 
 }
+
 
 function CF_GET_IP(){
         curl --location --request GET 'http://ip.flares.cloud/whole/ip_list.csv' \
@@ -175,12 +195,12 @@ function CF_good_cdn(){
     # https://github.com/cmliu/ASN2IPv4CIDRs
     ipplushtxt=IPlus.txt
     old_script=CFIPlus-new.sh
-    cd ${CF_DIR} && rm -f $ipplushtxt && rm -f $old_script
+    cd ${CF_DIR} && rm -f $ipplushtxt && rm -f $old_script && rm -f ${DNS_RECORDS}
     wget https://ghproxy.6565.eu.org/https://raw.githubusercontent.com/longyinghua/proxy/master/cf-good/CFIPlus-new.sh 
     chmod +x CFIPlus-new.sh 
     # bash CFIPlus-new.sh
-    bash CFIPlus-new.sh 2096 209242
-    $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 20   #延时上线140ms，下载速度30MB/s，获取20个
+    bash CFIPlus-new.sh 2096 209242 #选择需要测试端口
+    $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 10   #延时上线140ms，下载速度30MB/s，获取20个
 
     # ./CloudflareST -f ./IPlus.txt -n 500 -tp 2096 -url https://url-test.6565.eu.org/test  -sl 30 -tl 130 -dn 10
 
