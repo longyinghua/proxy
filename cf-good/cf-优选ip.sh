@@ -196,7 +196,7 @@ function CF_good_cdn(){
     ipplushtxt=IPlus.txt
     old_script=CFIPlus-new.sh
     cd ${CF_DIR} && rm -f $ipplushtxt && rm -f $old_script && rm -f ${DNS_RECORDS}
-    wget https://ghproxy.6565.eu.org/https://raw.githubusercontent.com/longyinghua/proxy/master/cf-good/CFIPlus-new.sh 
+    wget ${proxygithub}https://raw.githubusercontent.com/longyinghua/proxy/master/cf-good/CFIPlus-new.sh 
     chmod +x CFIPlus-new.sh 
     # bash CFIPlus-new.sh
     bash CFIPlus-new.sh 2096 209242 #选择需要测试端口
