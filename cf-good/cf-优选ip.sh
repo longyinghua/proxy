@@ -7,7 +7,8 @@ CF_DIR="/tmp/Cloudflare"
 CF_CDN_IP=(104.16.0)
 
 
-URL_SPEED="https://url-test.6565.eu.org/test"
+URL_SPEED="http://cachefly.cachefly.net/100mb.test"
+# URL_SPEED="https://url-test.6565.eu.org/test"
 # URL_SPEED="spurl.api.030101.xyz/100mb"
 
 IP_RESULT="result.csv"
@@ -200,7 +201,10 @@ function CF_good_cdn(){
     chmod +x CFIPlus-new.sh 
     # bash CFIPlus-new.sh
     bash CFIPlus-new.sh 2096 209242 #选择需要测试端口
-    $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 10   #延时上线140ms，下载速度30MB/s，获取20个
+
+    $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED #家庭软路由测试，有时候因为-tl延迟或者-sl速度都会导致测速没有结果，直接忽略速度和延迟进行测试才会有一点速度结果，跟测速url没有关系
+
+    # $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 10   #延时上线140ms，下载速度30MB/s，获取20个
 
     # ./CloudflareST -f ./IPlus.txt -n 500 -tp 2096 -url https://url-test.6565.eu.org/test  -sl 30 -tl 130 -dn 10
 
