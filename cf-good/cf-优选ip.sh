@@ -7,8 +7,8 @@ CF_DIR="/tmp/Cloudflare"
 CF_CDN_IP=(104.16.0)
 
 
-#URL_SPEED="https://url-test.6565.eu.org/test"
-URL_SPEED="spurl.api.030101.xyz/100mb"
+URL_SPEED="https://url-test.6565.eu.org/test"
+# URL_SPEED="spurl.api.030101.xyz/100mb"
 
 IP_RESULT="result.csv"
 
