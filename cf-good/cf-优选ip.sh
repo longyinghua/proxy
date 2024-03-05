@@ -206,6 +206,8 @@ function CF_good_cdn(){
 
     # ./CloudflareST -tp 2096 -url https://url-test.6565.eu.org/test -ip 89.116.250.0/24,45.94.169.0/24,167.68.11.0/24,45.131.4.0/22,194.53.53.0/24,194.152.44.0/24,199.33.230.0/23,185.193.28.0/22,154.83.22.0/23,83.118.224.0/22 -allip   #这样直接指定ip段内所有IP进行优选也是可行的
 
+    # ./CloudflareST -tp 2096 -url https://url-test.6565.eu.org/test  -allip -sl 10   #默认使用ip.txt文件中的ip，使用-allip参数可以测试所有ip，-sl参数设置下载速度下线为10MB/s
+
     # $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 10   #延时上线140ms，下载速度30MB/s，获取20个
 
     # ./CloudflareST -f ./IPlus.txt -n 500 -tp 2096 -url https://url-test.6565.eu.org/test  -sl 30 -tl 130 -dn 10
