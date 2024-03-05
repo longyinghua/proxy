@@ -10,7 +10,7 @@ CF_CDN_IP=(104.16.0)
 # URL_SPEED="http://cachefly.cachefly.net/100mb.test"
 URL_SPEED="https://url-test.6565.eu.org/test"
 # URL_SPEED="https://url-speed.6565.eu.org/100m"
-# URL_SPEED="spurl.api.030101.xyz/100mb"
+# URL_SPEED="https://spurl.api.030101.xyz/100mb"
 
 IP_RESULT="result.csv"
 
