@@ -204,7 +204,7 @@ function CF_good_cdn(){
 
     $CF_DIR/CloudflareST -tp 2096  -f $CF_DIR/$ipplushtxt -url $URL_SPEED #家庭软路由测试，有时候因为-tl延迟或者-sl速度都会导致测速没有结果，直接忽略速度和延迟进行测试才会有一点速度结果，跟测速url没有关系
 
-    # ./CloudflareST -tp 2096 -url https://url-test.6565.eu.org/test -ip 89.116.250.0/24,45.94.169.0/24,167.68.11.0/24,45.131.4.0/22,194.53.53.0/24 -allip   #这样直接指定ip段内所有IP进行优选也是可行的
+    # ./CloudflareST -tp 2096 -url https://url-test.6565.eu.org/test -ip 89.116.250.0/24,45.94.169.0/24,167.68.11.0/24,45.131.4.0/22,194.53.53.0/24,194.152.44.0/24,199.33.230.0/23,185.193.28.0/22,154.83.22.0/23,83.118.224.0/22 -allip   #这样直接指定ip段内所有IP进行优选也是可行的
 
     # $CF_DIR/CloudflareST -tp 2096 -n 500 -f $CF_DIR/$ipplushtxt -url $URL_SPEED -sl 30 -tl 140 -dn 10   #延时上线140ms，下载速度30MB/s，获取20个
 
