@@ -25,6 +25,8 @@ CF_API_EMAIL="longyinghua126@gmail.com"
 
 DNS_RECORDS=dns_records.json
 
+# 文件分割命令，添加.txt后缀，-l按照多少行分割，-d使用数字作为文件编号
+# split --additional-suffix=.txt -d  -l 100000 AS31898ip.txt
 
 # 根据ping包获取按照延迟从低到高排序作为Cloud法拉reST优选来源IP
 # for i in {1..254};do ping -c1 $CF_CDN_IP.$i |grep from;done | awk '{print $4,$7}' | awk -F ":" '{print $1,$2}' | awk -F "time=" '{print $1,$2}' |sort -nk2 |column -t | head -100 |awk '{print $1}'> $CF_DIR/45102-1-443.txt
