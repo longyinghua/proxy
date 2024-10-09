@@ -1,0 +1,206 @@
+{
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "节点选择",
+      "outbounds": [
+        "自动选择",
+        "香港",
+        "美国",
+        "日本",
+        "新加坡",
+        "马来西亚",
+        "澳大利亚",
+        "英国",
+        "英国-俄罗斯",
+        "泰国",
+        "台湾",
+        "越南",
+        "土耳其",
+        "波兰",
+        "俄罗斯",
+        "韩国",
+        "印度尼西亚",
+        "法国"
+      ],
+      "default": "自动选择"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "urltest",
+      "tag": "自动选择",
+      "outbounds": [
+        "香港",
+        "美国",
+        "日本",
+        "新加坡",
+        "马来西亚",
+        "澳大利亚",
+        "英国",
+        "英国-俄罗斯",
+        "泰国",
+        "台湾",
+        "越南",
+        "土耳其",
+        "波兰",
+        "俄罗斯",
+        "韩国",
+        "印度尼西亚",
+        "法国"
+      ]
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "香港",
+      "server": "soonhk.soon.guru",
+      "server_port": 40000,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "美国",
+      "server": "soonusjp.soon.guru",
+      "server_port": 40001,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "日本",
+      "server": "soonjp.soon.guru",
+      "server_port": 40003,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "新加坡",
+      "server": "soonsgp.soon.guru",
+      "server_port": 40005,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "马来西亚",
+      "server": "soonml.soon.guru",
+      "server_port": 40006,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "澳大利亚",
+      "server": "soonfrk.soon.guru",
+      "server_port": 40011,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "trojan",
+      "tag": "英国",
+      "server": "soonuk.soon.guru",
+      "server_port": 40007,
+      "password": "11111111-1234-1234-1234-121728383445",
+      "tls": {
+        "enabled": true,
+        "server_name": "uknode.soon.guru"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "英国-俄罗斯",
+      "server": "uknode.soon.guru",
+      "server_port": 40007,
+      "password": "11111111-1234-1234-1234-121728383445",
+      "tls": {
+        "enabled": true,
+        "server_name": "uknode.soon.guru"
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "泰国",
+      "server": "soonth.soon.guru",
+      "server_port": 40009,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "台湾",
+      "server": "soontw.soon.guru",
+      "server_port": 40020,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "越南",
+      "server": "soonvn.soon.guru",
+      "server_port": 40021,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "土耳其",
+      "server": "soontur.soon.guru",
+      "server_port": 40019,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "波兰",
+      "server": "soonpr.soon.guru",
+      "server_port": 40030,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "俄罗斯",
+      "server": "soonru.soon.guru",
+      "server_port": 40031,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "韩国",
+      "server": "soonkr.soon.guru",
+      "server_port": 40032,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "印度尼西亚",
+      "server": "soonidn.soon.guru",
+      "server_port": 40033,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "法国",
+      "server": "soonfr.soon.guru",
+      "server_port": 40034,
+      "method": "chacha20-ietf-poly1305",
+      "password": "11111111-1234-1234-1234-121728383445"
+    }
+  ]
+}
