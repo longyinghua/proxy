@@ -97,6 +97,7 @@ def generate_subscription_links():
 
     decrypted_subscribe_links.sort(key=lambda link: re.search(r'#(\w+)', link).group(1) if re.search(r'#(\w+)', link) else '')  # 根据节点名称排序
     encoded_content = base64.b64encode('\n'.join(decrypted_subscribe_links).encode('utf-8')).decode('utf-8')  # 将链接编码为Base64
+    
     # post_to_dpaste(encoded_content)  # 发布到dpaste.com
     
     post_to_dpaste_another(decrypted_subscribe_links)  # 发布到dpaste.com
