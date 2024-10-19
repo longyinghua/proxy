@@ -126,7 +126,7 @@ def post_to_dpaste_another(decrypted_subscribe_links):
     dpaste_data = {
         'content': encoded_data,
         'syntax': 'text',
-        'expiry_days': 1,
+        'expiry_days': 7,
         'private': True
     }
     dpaste_response = requests.post(dpaste_url, data=dpaste_data)
