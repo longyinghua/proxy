@@ -12,7 +12,7 @@ uid = "3690911436885991424"  # 注释掉原来的uid
 # uid_tg_hello_world = "3690911436885991424"  # 注释掉原来的uid
 uid_long = "3672449415702126592"  # 新增的uid变量
 
-decrypted_links = []
+decrypted_subscribe_links = []
 
 def generate_uuid():
     """
@@ -93,11 +93,13 @@ def generate_subscription_links():
         host = node.get('host') or node.get('ip')  # 尝试获取节点数据中的'host',如果不存在,则尝试获取'ip'
         name = node.get('name', 'Unknown')  # 尝试获取节点数据中的'name',如果不存在,则默认为'Unknown'
         link = f"trojan://{uid}@{host}:443?allowInsecure=1#{name}"  # 生成订阅链接
-        decrypted_links.append(link)  # 添加到链接列表
+        decrypted_subscribe_links.append(link)  # 添加到链接列表
 
-    decrypted_links.sort(key=lambda link: re.search(r'#(\w+)', link).group(1) if re.search(r'#(\w+)', link) else '')  # 根据节点名称排序
-    encoded_content = base64.b64encode('\n'.join(decrypted_links).encode('utf-8')).decode('utf-8')  # 将链接编码为Base64
-    post_to_dpaste(encoded_content)  # 发布到dpaste.com
+    decrypted_subscribe_links.sort(key=lambda link: re.search(r'#(\w+)', link).group(1) if re.search(r'#(\w+)', link) else '')  # 根据节点名称排序
+    encoded_content = base64.b64encode('\n'.join(decrypted_subscribe_links).encode('utf-8')).decode('utf-8')  # 将链接编码为Base64
+    # post_to_dpaste(encoded_content)  # 发布到dpaste.com
+    
+    post_to_dpaste_another(decrypted_subscribe_links)  # 发布到dpaste.com
 
 def post_to_dpaste(encoded_content):
     """
@@ -112,5 +114,30 @@ def post_to_dpaste(encoded_content):
     else:
         print("Failed to post to dpaste, status code:", response.status_code)  # 如果请求失败,打印错误码
 
+
+def post_to_dpaste_another(decrypted_subscribe_links):
+    """
+    将订阅链接上传到dpaste
+    :param decrypted_subscribe_links: 订阅链接列表
+    :return: None
+    """
+    encoded_data = base64.b64encode('\n'.join(decrypted_subscribe_links).encode('utf-8')).decode('utf-8')
+    dpaste_url = "https://dpaste.com/api/"
+    dpaste_data = {
+        'content': encoded_data,
+        'syntax': 'text',
+        'expiry_days': 1,
+        'private': True
+    }
+    dpaste_response = requests.post(dpaste_url, data=dpaste_data)
+
+    if dpaste_response.ok:
+        print("订阅：", dpaste_response.text.strip() + ".txt")
+    else:
+        print("上传失败，状态码：", dpaste_response.status_code)
+
+
 if __name__ == "__main__":
     generate_subscription_links()  # 执行主程序
+
+
