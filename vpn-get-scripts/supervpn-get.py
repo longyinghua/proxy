@@ -8,7 +8,7 @@ import uuid  # 导入uuid模块
 
 # 密钥和用户ID
 # encryption_key = "c3e7254f65b8c39e9d6391fd422140f3"  # 此变量未被使用,已注释
-uid = "3690911436885991424"  # 注释掉原来的uid
+uid = "3690911436885991424"  # tg的原来的uid
 # uid_tg_hello_world = "3690911436885991424"  # 注释掉原来的uid
 uid_long = "3672449415702126592"  # 新增的uid变量
 
