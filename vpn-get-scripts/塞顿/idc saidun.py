@@ -53,14 +53,18 @@ def prepare_headers(session, device_uuid):
 
 # 获取VPN节点列表
 def lines_list(session, device_uuid):
-    url = "http://api.saidun.biz/vpn/lines_list"
+    # url = "http://api.saidun.biz/vpn/lines_list"
+    url = "http://api.saidun666.com/vpn/lines_list"
     headers = prepare_headers(session, device_uuid)
     response = session.post(url, data={}, headers=headers)
     return response.text
 
 # 获取VPN节点协议
 def node_protocol(session, device_uuid, code):
-    url = "http://api.saidun.biz/vpn/node_protocol"
+    # url = "http://api.saidun.biz/vpn/node_protocol"
+    
+    url = "http://api.saidun666.com/vpn/node_protocol"
+    
     data = {
         "code": code
     }
@@ -138,6 +142,18 @@ def get_proxy_url():
     
     return urls
 
+def delete_saidun_txt():
+    # 获取当前目录的绝对路径
+    current_directory = os.path.abspath('.')
+    file_path = os.path.join(current_directory, 'saidun.txt')  # 定义文件路径
+    
+    if os.path.exists(file_path):  # 检查文件是否存在
+        os.remove(file_path)  # 删除文件
+        # print(f"{file_path} 已成功删除。")  # 输出删除成功信息
+    else:
+        pass 
+        # print(f"{file_path} 文件不存在。")  # 输出文件不存在信息
+        
 def post_to_dpaste_another(decrypted_subscribe_links):
     """
     将订阅链接上传到dpaste
@@ -164,3 +180,6 @@ if __name__ == "__main__":
     urls = get_proxy_url()
     
     post_to_dpaste_another(urls)
+    
+    
+    
