@@ -41,9 +41,8 @@ def prepare_headers(session, device_uuid):
     }
     key = iv = "ubje0xtjWTpZyGTV"  # 设置加密密钥和初始化向量
     
-    # encrypted_header = encrypt_aes(json.dumps(header_data), key, iv)  # 加密请求头
+    encrypted_header = encrypt_aes(json.dumps(header_data), key, iv)  # 加密请求头
     
-    encrypted_header = aes_encrypt_1(json.dumps(header_data), key, iv)  # 加密请求头
     
     return {
         "jOlaACOrIfkemD12xzNwxjNSijWwyzncvde": encrypted_header
