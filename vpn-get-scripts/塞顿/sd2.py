@@ -19,8 +19,6 @@ def encrypt_aes(data, key, iv):
     ct_bytes = cipher.encrypt(pad(data.encode('utf-8'), AES.block_size))  # 加密数据
     return base64.b64encode(ct_bytes).decode('utf-8')  # 返回Base64编码的加密字符串
 
-
-
 # 解密函数
 def decrypt_aes(encrypted_data, key, iv):
     encrypted_bytes = base64.b64decode(encrypted_data)  # 解码Base64加密字符串
@@ -43,8 +41,9 @@ def prepare_headers(session, device_uuid):
     }
     key = iv = "ubje0xtjWTpZyGTV"  # 设置加密密钥和初始化向量
     
-    encrypted_header = encrypt_aes(json.dumps(header_data), key, iv)  # 加密请求头
+    # encrypted_header = encrypt_aes(json.dumps(header_data), key, iv)  # 加密请求头
     
+    encrypted_header = aes_encrypt_1(json.dumps(header_data), key, iv)  # 加密请求头
     
     return {
         "jOlaACOrIfkemD12xzNwxjNSijWwyzncvde": encrypted_header
