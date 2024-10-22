@@ -3,6 +3,7 @@ import requests  # 导入HTTP请求库
 import json  # 导入JSON处理库
 import time  # 导入时间处理库
 import uuid  # 导入UUID生成库
+import pyaes  # 导入AES加密库
 from Crypto.Cipher import AES  # 导入AES加密库
 from Crypto.Util.Padding import pad, unpad  # 导入填充和去填充函数
 import base64  # 导入Base64编码库
@@ -12,11 +13,13 @@ from datetime import datetime, timedelta  # 导入日期时间处理库
 
 proxy_urls = []  # 初始化代理URL列表
 
-# 加密函数
+
 def encrypt_aes(data, key, iv):
     cipher = AES.new(key.encode('utf-8'), AES.MODE_CBC, iv.encode('utf-8'))  # 创建AES加密对象
     ct_bytes = cipher.encrypt(pad(data.encode('utf-8'), AES.block_size))  # 加密数据
     return base64.b64encode(ct_bytes).decode('utf-8')  # 返回Base64编码的加密字符串
+
+
 
 # 解密函数
 def decrypt_aes(encrypted_data, key, iv):
@@ -26,6 +29,7 @@ def decrypt_aes(encrypted_data, key, iv):
     decrypted = unpad(decrypted_padded, AES.block_size)  # 去除填充
     return decrypted.decode('utf-8')  # 返回解密后的字符串
 
+    
 # 请求头准备函数
 def prepare_headers(session, device_uuid):
     current_timestamp = str(int(time.time()))  # 获取当前时间戳
@@ -38,7 +42,10 @@ def prepare_headers(session, device_uuid):
         "h-language": "CN"
     }
     key = iv = "ubje0xtjWTpZyGTV"  # 设置加密密钥和初始化向量
+    
     encrypted_header = encrypt_aes(json.dumps(header_data), key, iv)  # 加密请求头
+    
+    
     return {
         "jOlaACOrIfkemD12xzNwxjNSijWwyzncvde": encrypted_header
     }
@@ -119,7 +126,10 @@ def fetch_from_api(lines_list_url, node_protocol_url, device_uuid):
             node_protocol_result = node_protocol(session, device_uuid, code, node_protocol_url)  # 获取节点协议
             nodeProtocolObj = json.loads(node_protocol_result)  # 解析JSON响应
             url = nodeProtocolObj['result']['url']  # 获取节点URL
+            
             decrypted_url = decrypt_aes(url, 'TmPrPhkOf8by0cvx', 'TmPrPhkOf8by0cvx')  # 解密URL
+            
+            
             print(decrypted_url)  # 输出解密后的URL
             urls.append(decrypted_url)  # 添加到URL列表
     except Exception as e:
