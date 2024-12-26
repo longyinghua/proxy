@@ -1,4 +1,5 @@
 #项目地址：https://github.com/longyinghua/CloudFlareIPlus
+#https://github.com/longyinghua/CloudFlareIPlus-new
 
 
 #!/bin/bash
