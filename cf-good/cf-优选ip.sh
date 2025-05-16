@@ -15,7 +15,7 @@ URL_SPEED="https://url-test.6565.eu.org/test"
 IP_RESULT="result.csv"
 
 speedurl="https://speed.cloudflare.com/__down?bytes=$((speedtestMB * 1000000))" #官方测速链接
-proxygithub="https://mirror.ghproxy.com/" #反代github加速地址，如果不需要可以将引号内容删除，如需修改请确保/结尾 例如"https://mirror.ghproxy.com/"
+proxygithub="https://ghproxy.6565.eu.org/" #反代github加速地址，如果不需要可以将引号内容删除，如需修改请确保/结尾 例如"https://mirror.ghproxy.com/"
 
 
 ZONE_ID_6565=444f2e8c1ab64a1d390c0cd347357a12 #查看待操作域名的 ZONE_ID（在域名概要页面右下角可以看到）
